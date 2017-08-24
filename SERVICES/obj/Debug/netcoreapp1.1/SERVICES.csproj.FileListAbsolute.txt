@@ -1,0 +1,11 @@
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.deps.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\bin\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.pdb

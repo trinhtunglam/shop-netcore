@@ -1,0 +1,193 @@
+﻿@model List<SHOP_NETCORE.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+    int totalItem = (ViewData["totalItem"] != null) ? int.Parse(ViewData["totalItem"].ToString()) : 5;
+    int pageSize = (ViewData["pageSize"] != null) ? int.Parse(ViewData["pageSize"].ToString()) : 1;
+    int currentPage = (ViewData["currentPage"] != null) ? int.Parse(ViewData["currentPage"].ToString()) : 1;
+
+    int totalPage = totalItem / pageSize;
+
+    if (totalItem % pageSize != 0)
+    {
+        totalPage += 1;
+    }
+
+}
+<style>
+    #DataAjax table td{
+        height:67px;
+    }
+</style>
+
+@section Scripts{
+    <script src="~/admin/bower_components/bootbox/bootbox.min.js"></script>
+    @*<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>*@
+    <script>
+        function deleteProduct(id) {
+            bootbox.confirm("Bạn có chắc muốn xóa?", function (result) {
+                //Example.show("Confirm result: " + result);
+                if (result == true) {
+                    $.ajax({
+                        url: '/admin/product/delete',
+                        data: {
+                            id: id
+                        },
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (responce) {
+                            if (responce.status == true) {
+                                bootbox.alert("Xóa thành công", function () {
+                                    location.href = "/admin/product";
+                                });
+                            }
+                            else {
+                                alert("Loi");
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+            });
+
+        }
+
+        $('.btnDelete').click(function () {
+            var id = $(this).data('id');
+            bootbox.confirm("Bạn có chắc muốn xóa?", function (result) {
+                //Example.show("Confirm result: " + result);
+                if (result == true) {
+                    $.ajax({
+                        url: '/admin/product/delete',
+                        data: {
+                            id: id
+                        },
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (responce) {
+                            if (responce.status == true) {
+                                bootbox.alert("Xóa thành công", function () {
+                                    location.href = "/admin/supplier";
+                                });
+                            }
+                            else {
+                                alert("Loi");
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+            });
+
+
+        });
+
+        $('#btnSearch').on('click', function () {
+            var searchString = $('#searchString').val();
+            $.ajax({
+                url: '@Url.Action("Search", "Product")',
+                type: "GET",
+                data: {
+                    searchString: searchString
+                },
+                contentType: 'application/html; charset=utf-8',
+                success: function (data) {
+                    $("#DataAjax").html(data);
+                },
+                error: function (xhr) {
+                    alert(xhr);
+                }
+        });
+
+        });
+
+        function GetListProduct(page, totalPage) {
+            if (page == 0 || page > totalPage)
+                return;
+
+            //var stringSearch = $("#ProductName").val();
+            //var categoryId = $("#CategoryId").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetListProduct", "Product")',
+                data: {
+                    Page: page
+                },
+                success: function (response) {
+                    $("#DataAjax").html(response)
+                }
+            });
+        }
+    </script>
+    <script>
+      
+        $('#Paging').twbsPagination({
+            totalPages: @totalPage,
+            visiblePages: 5,
+            first: "Dau",
+            last: "Cuoi",
+            next: "Tiep",
+            prev: "Lui",
+            onPageClick: function (event, page) {
+                GetListProduct(page,@totalPage);
+                
+            }
+        });
+    </script>
+    
+
+}
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Danh sách sản phẩm</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <di class="row">
+                <div class="col-md-6">
+                    @*<form asp-method="get" asp-area="Admin" asp-controller="Product" asp-action="Search" data-ajax="true" data-ajax-success="AjaxSuccess">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="txtKeyword" name="searchString" placeholder="Từ khóa">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">Tìm kiếm</button>
+                                </span>
+                            </div>
+                        </form>*@
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id="btnSearch" type="button">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a href="/admin/product/create" class="btn btn-success">Thêm mới</a>
+                    <button class="btn btn-danger" id="btnDelete">Xóa</button>
+                </div>
+            </di>
+            <div class="row">
+                <div class="col-md-12" id="DataAjax">
+                    @{Html.RenderPartial("Search", Model); }
+
+                </div>
+                <div id="Paging" class="pull-right" style="padding-right:15px;">
+
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+</section><!-- /.content -->

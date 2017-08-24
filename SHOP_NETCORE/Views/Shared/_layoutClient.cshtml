@@ -1,0 +1,92 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Megashop</title>
+
+    <!--js-->
+    <script src="~/admin/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/client/js/jquery-1.8.2.min.js"></script>
+    <script src="~/client/js/common.js"></script>
+    <script src="~/client/js/jquery.easing.1.3.js"></script>
+    <script src="~/client/js/ddsmoothmenu.js"></script>
+    <script src="~/client/js/jquery.flexslider.js"></script>
+    <script src="~/client/js/jquery.elastislide.js"></script>
+    <script src="~/client/js/jquery.jcarousel.min.js"></script>
+    <script src="~/client/js/jquery.accordion.js"></script>
+    <script src="~/client/js/light_box.js"></script>
+    <script src="~/client/js/mustache/mustache.js"></script>
+    <script type="text/javascript">$(document).ready(function(){$(".inline").colorbox({inline:true, width:"50%"});});</script>
+    <!--end js-->
+    <!-- Mobile Specific Metas ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS ================================================== -->
+    <link href="~/admin/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/admin/bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/client/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/client/css/style.css">
+    <link rel="stylesheet" href="~/client/css/orange.css">
+    <link rel="stylesheet" href="~/client/css/skeleton.css">
+    <link rel="stylesheet" href="~/client/css/layout.css">
+    <link rel="stylesheet" href="~/client/css/ddsmoothmenu.css" />
+    <link rel="stylesheet" href="~/client/css/elastislide.css" />
+    <link rel="stylesheet" href="~/client/css/home_flexslider.css" />
+
+    <link rel="stylesheet" href="~/client/css/light_box.css" />
+    @*<link href="../../../html5shiv.googlecode.com/svn/trunk/html5.js">*@
+
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <div class="mainContainer sixteen container">
+        @Html.Partial("_header.cshtml")
+        
+        @RenderSection("Slide", required: false)
+        @RenderBody()
+
+        
+        <!--Banner Block-->
+        
+        <!--Content Block-->
+        
+    </div>
+    <!--Quick view Block-->
+    <script type="text/javascript">
+jQuery (function(){
+	var tabContainers=jQuery('div.tabs > div');
+	tabContainers.hide().filter(':first').show();
+	jQuery('div.tabs ul.tabNavigation a').click(function(){
+		tabContainers.hide();
+		tabContainers.filter(this.hash).show();
+		jQuery('div.tabs ul.tabNavigation a').removeClass('selected');
+		jQuery(this).addClass('selected');
+		return false;
+		}).filter(':first').click();
+	});
+    </script>
+
+    
+   
+    
+    <!--Quick view Block-->
+    <!--Footer Block-->
+    @Html.Partial("_footer.cshtml")
+
+    @*<environment names="Staging,Production">
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>*@
+
+    @RenderSection("scriptClient",required:false)
+</body>
+</html>

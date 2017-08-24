@@ -1,0 +1,58 @@
+﻿@model List<SHOP_NETCORE.Models.ProductViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ 
+    
+}
+
+@section Scripts{
+<script>
+    
+</script>
+
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Hình ảnh</th>
+        <th>Giá nhập</th>
+        <th>Giá bán</th>
+        <th>Giá KM</th>
+        <th>Số lượng</th>
+        <th>Sản phẩm HOT</th>
+        <th>Trạng thái</th>
+        <th>Thao tác</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductCode</td>
+            <td>@item.Name</td>
+            <td ><img src="@Url.Content("~/images/"+ item.Images)" width="50px" /></td>
+            <td>@(item.OriginalPrice.ToString("N0"))<small style="color:red;"> VNĐ</small></td>
+            <td>@(item.Price.ToString("N0") )<small style="color:red;"> VNĐ</small></td>
+            <td>@item.PromotionPrice.ToString("N0")<small style="color:red;"> VNĐ</small></td>
+            <td>@item.Quantity</td>
+            <td>@item.HotFlag</td>
+            <td>
+                @if (item.Status == true)
+                {
+                    <label class="text-primary">Hiển thị</label>
+                }
+                else
+                {
+                    <label class="text-red">Ẩn</label>
+                }
+            </td>
+            
+            <td>
+                <a href="/admin/product/edit/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                <button class="btn  btn-sm btn-danger btnDelete" onclick="deleteProduct(@item.Id)"><i class="fa fa-trash"></i></button>
+            </td>
+        </tr>
+    }
+</table>
+

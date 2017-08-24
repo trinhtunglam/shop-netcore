@@ -1,0 +1,47 @@
+﻿@model List<SHOP_NETCORE.Models.OrderViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mã đơn hàng</th>
+        <th>Khách hàng</th>
+        <th>Ngày tạo</th>
+        <th>Địa chỉ</th>
+        <th>Email</th>
+        <th>Điện thoại</th>
+        <th>Tình trạng</th>
+        <th>thao tác</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.CustomerName</td>
+            <td>@item.CreatedDate</td>
+            <td>@item.CustomerAddress</td>
+            <td>@item.CustomerEmail</td>
+            <td>@item.CustomerMobile</td>
+            <td>
+                @if (item.Status == true)
+                {
+                    <label class="text-primary">Đã duyệt</label>
+                }
+                else
+                {
+                    <label class="text-red">Chưa duyệt</label>
+                }
+            </td>
+
+            <td>
+                <a href="/admin/orderdetail/@item.ID" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>  Chi tiết</a>
+                @if (item.Status == false)
+                {
+                    <button class="btn btn-sm btn-success" onclick="active(@item.ID)"><i class="fa fa-subway"></i>  Duyệt đơn hàng</button>
+                }
+                
+            </td>
+        </tr>
+    }
+</table>

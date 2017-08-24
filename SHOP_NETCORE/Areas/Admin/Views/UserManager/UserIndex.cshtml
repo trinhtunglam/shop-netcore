@@ -1,0 +1,165 @@
+﻿@model IEnumerable<SHOP_NETCORE.Models.ApplicationUserViewModel>
+@{
+    ViewData["Title"] = "UserIndex";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+    var lstRole = (List<SHOP_NETCORE.Models.ApplicationRoleViewModel>) ViewBag.lstRole;
+}
+
+@section Scripts{
+<script src="~/admin/js/userManager.js"></script>
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Danh sách quyền</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <di class="row">
+                <div class="col-md-6">
+                    <a data-toggle="modal" data-target="#modal-add-user" class="btn btn-primary">Thêm mới User</a>
+</div>
+            </di>
+            <div class="row">
+                <div class="col-md-12" id="AjaxUser">
+                    @{Html.RenderPartial("_UserPartial", Model); }
+                    
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+</section>
+
+
+<div class="modal fade" id="modal-add-user" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thêm mới User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Tài khoản</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtUserName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Họ tên</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtFullName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Email</p>
+                        <div class="col-lg-6">
+                            <input type="email" id="txtEmail" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Quyền</p>
+                        <div class="col-lg-6">
+                            <select class="form-control" id="selectRole">
+                                @foreach (var role in lstRole)
+                                {
+                                    <option value="@role.Id">@role.RoleName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Mật khẩu</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtPass" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Xác nhận Mật khẩu</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtConfirmPass" class="form-control" />
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                <button type="button"  class="btn btn-primary btnAddUser" data-dismiss="modal">Lưu</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="modal-edit-user" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thêm mới User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Tài khoản</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtUserNameEdit" class="form-control" />
+                            <input type="hidden" id="txtId" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Họ tên</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtFullNameEdit" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Email</p>
+                        <div class="col-lg-6">
+                            <input type="email" id="txtEmailEdit" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Quyền</p>
+                        <div class="col-lg-6">
+                            <select class="form-control" id="selectRoleEdit">
+                                @foreach (var role in lstRole)
+                                {
+                                    <option value="@role.Id">@role.RoleName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Mật khẩu</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtPassEdit" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="col-lg-3 col-sm-3 control-label">Xác nhận Mật khẩu</p>
+                        <div class="col-lg-6">
+                            <input type="text" id="txtConfirmPassEdit" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary btnUpdateUser" data-dismiss="modal">Lưu</button>
+            </div>
+        </div>
+
+    </div>
+</div>

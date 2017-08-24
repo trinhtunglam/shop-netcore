@@ -1,0 +1,78 @@
+﻿@model SHOP_NETCORE.Models.ProductCategoryViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+}
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<section class="content">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới Danh mục</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        @using (Html.BeginForm("Update", "ProductCategory", FormMethod.Post))
+        {
+            <div class="box-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @*<label asp-for="Name" class="col-sm-2 control-label"></label>*@
+                        @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-6">
+                            @*<input type="text" asp-for="Name" class="form-control">*@
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.Id)
+                            @*<span asp-validation-for="Name"></span>*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*<label asp-for="Name" class="col-sm-2 control-label"></label>*@
+                        @Html.LabelFor(m => m.Alias, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-6">
+                            @*<input type="text" asp-for="Name" class="form-control">*@
+                            @Html.TextBoxFor(m => m.Alias, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+                            @*<span asp-validation-for="Name"></span>*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*<label asp-for="Name" class="col-sm-2 control-label"></label>*@
+                        @Html.LabelFor(m => m.Description, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-6">
+                            @*<input type="text" asp-for="Name" class="form-control">*@
+                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            @*<span asp-validation-for="Name"></span>*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*<label asp-for="Name" class="col-sm-2 control-label"></label>*@
+                        @Html.LabelFor(m => m.ParentID, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-6">
+                            @*<input type="text" asp-for="Name" class="form-control">*@
+                            @Html.TextBoxFor(m => m.ParentID, new { @class = "form-control",@type="number" })
+                            @*<span asp-validation-for="Name"></span>*@
+                        </div>
+                    </div>
+
+                    <div class="box-footer col-sm-offset-2">
+                        <button class="btn btn-default ">Hủy</button>
+                        <button type="submit" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+
+            </div><!-- /.box-body -->
+                <!-- /.box-footer -->
+        }
+
+    </div><!-- /.box -->
+</section>
+
+

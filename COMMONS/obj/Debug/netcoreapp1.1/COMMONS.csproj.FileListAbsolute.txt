@@ -1,0 +1,7 @@
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.deps.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csprojResolveAssemblyReference.cache

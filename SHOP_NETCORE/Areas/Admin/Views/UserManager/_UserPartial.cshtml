@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SHOP_NETCORE.Models.ApplicationUserViewModel>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Tài khoản</th>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Thao tác</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>
+                <button data-id="@item.Id"
+                        class="btn btn-info btnEditUser">
+                    <i class="glyphicon glyphicon-pencil"></i>   Edit
+                </button>
+                <button data-id="@item.Id"
+                        class="btn btn-danger btnDeleteUser">
+                    <i class="glyphicon glyphicon-trash"></i>   Delete
+                </button>
+            </td>
+        </tr>
+    }
+
+
+</table>

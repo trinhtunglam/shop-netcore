@@ -1,0 +1,125 @@
+﻿@model List<SHOP_NETCORE.Models.ProducerViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+}
+
+@section Scripts{
+    <script src="~/admin/bower_components/bootbox/bootbox.min.js"></script>
+
+    <script>
+            $('.btnDelete').click(function () {
+                var id = $(this).data('id');
+                bootbox.confirm("Bạn có chắc muốn xóa?", function (result) {
+                    //Example.show("Confirm result: " + result);
+                    if (result == true) {
+                        $.ajax({
+                            url: '/admin/producer/delete',
+                            data: {
+                                id: id
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+                            success: function (responce) {
+                                if (responce.status == true) {
+                                    bootbox.alert("Xóa thành công", function () {
+                                        location.href = "/admin/supplier";
+                                    });
+                                }
+                                else {
+                                    alert("Loi");
+                                }
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        })
+                    }
+                });
+
+
+            });
+    </script>
+
+
+}
+
+@*<section class="content-header">
+        <h1>
+            Danh mục sản phẩm
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li class="active">Danh mục sản phẩm</li>
+        </ol>
+    </section>*@
+<!-- Main content -->
+
+<div class="container">
+    <form asp-controler="Producer" asp-action="Test" asp-method="post">
+        <input class="form-control" type="text" />
+        <input type="submit" value="Test" />
+    </form>
+</div>
+
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Danh sách nhà sản xuất</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <di class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Tìm kiếm</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+                <div class="col-md-6">
+                    <a href="/admin/producer/create" class="btn btn-success">Thêm mới</a>
+                    <button class="btn btn-danger" id="btnDelete">Xóa</button>
+                </div>
+            </di>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th style="width: 5%">ID</th>
+                            <th style="width:35%">Tên nhà sản xuất</th>
+                            <th style="width: 20%">Mô tả</th>
+                            <th style="width: 20%">Logo</th>
+                            <th style="width: 10%">Trạng thái</th>
+                            <th style="width: 10%">Thao tác</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Infomation</td>
+                                <td>@item.Logo</td>
+                                <td>@(item.Status == true ? "Hoạt động" : "Ngừng hoạt động")</td>
+                                <td>
+                                    <a href="/admin/producer/edit/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn  btn-sm btn-danger btnDelete" id="btnDelete" data-id="@item.Id"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+</section><!-- /.content -->

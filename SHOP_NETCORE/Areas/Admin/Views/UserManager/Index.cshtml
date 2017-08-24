@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SHOP_NETCORE.Models.ApplicationRoleViewModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+}
+
+@section Scripts{
+    <script>
+        $('.btnDeleteRole').off('click').on('click', function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: '/admin/usermanager/deleterole',
+                data: { id: id },
+                type: 'POST',
+                dataType: 'json',
+                success: function (responce) {
+                    if (responce.status == true) {
+                        alert("Xóa quyền thành công")
+                        location.reload();
+                    }
+                    else {
+                        alert("Xóa quyền thất bại");
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        });
+    </script>
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Danh sách quyền</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <di class="row">
+                <div class="col-md-6">
+                    <a href="/admin/usermanager/addrole" class="btn btn-primary">Thêm mới quyền</a>
+                </div>
+            </di>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Tên quyền</th>
+                            <th>Mô tả</th>
+                            <th>Người dùng</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.RoleName</td>
+                                <td>@item.Description</td>
+                                <td>@item.NumberOfUsers</td>
+                                <td>
+                                    <a href="/admin/usermanager/editrole/@item.Id"
+                                       class="btn btn-info">
+                                        <i class="glyphicon glyphicon-pencil"></i>   Edit
+                                    </a> 
+                                    @if (item.NumberOfUsers == 0)
+                                    {
+                                        <button data-id="@item.Id" class="btn btn-danger btnDeleteRole">
+                                            <i class="glyphicon glyphicon-trash"></i>   Delete
+                                        </button>
+                                    } 
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+</section>
+
+
+

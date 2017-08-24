@@ -1,0 +1,28 @@
+﻿@model List<SHOP_NETCORE.Models.ReceiptNoteViewModel>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mã phiếu nhập</th>
+        <th>Ngày tạo</th>
+        <th>Nhà cung cấp</th>
+        <th>thao tác</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Code</td>
+            <td>@item.CreatedDate</td>
+            <td>@item.SupplierId</td>
+
+            <td>
+                <a href="/admin/storage/receiptnotedetail/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>  Chi tiết</a>
+                @if (item.Status == false)
+                {
+                    <button class="btn btn-sm btn-success btnDuyet" data-id="@item.Id" onclick="active(@item.Id)"><i class="fa fa-subway"></i>  Duyệt phiếu nhập</button>
+                }
+
+            </td>
+        </tr>
+    }
+</table>

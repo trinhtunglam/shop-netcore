@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+}
+<style>
+    input{
+        border-radius:0px !important;
+    }
+    button {
+        border-radius: 0px !important;
+    }
+</style>
+
+@section scriptClient{
+    <script src="~/client/js/shoppingCart.js"></script>
+}
+
+<div class="container">
+    <h3>Giỏ hàng</h3>
+    <div id="cartContent">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>STT</td>
+                    <td>Product Name</td>
+                    <td>Image</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Total Price</td>
+                    <td>#</td>
+                </tr>
+            </thead>
+            <tbody id="cartBody"></tbody>
+        </table>
+
+        <div class="update-shopping-cart">
+            <button class="btn btn-info" id="btnContinue">Continue Shopping</button>
+            <button class="btn btn-danger" id="btnDeleteAll">Delete Cart</button>
+            <button class="btn btn-primary" id="btnCheckOut">Checkout</button>
+            <h5 style="padding-top:7px;padding-left:7px;">Total Price: <span style="color:red;" id="totalMoney"></span> <small style="color:red;">VNĐ</small></h5>
+        </div>
+
+    </div>
+
+    <div id="divCheckout" style="display:none;">
+
+        <div class="reservation_top">
+            <div class=" contact_right">
+                <h4>Thanh toán</h4>
+                <div class="contact-form">
+                    <form method="post">
+                        @*if (Request.IsAuthenticated)
+                            {
+                                <label>
+                                    <input type="checkbox" id="checkLoginInfo" />
+                                    Sử dụng thông tin đăng nhập?
+                                </label>
+                            }*@
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="txtHoten" placeholder="Họ tên">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="txtDiachi" placeholder="Địa chỉ" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="txtEmail" placeholder="Email" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="txtDienthoai" placeholder="Điện thoại" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <textarea id="txtMes" class="form-control">Message</textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="button" class="btn btn-success" id="btnCreateOrder" value="Thanh toán">
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"> </div>
+</div>
+<script id="tplCart" type="x-tmpl-mustache">
+    <tr>
+        <td>{{ProductCode}}</td>
+        <td>{{Name}}</td>
+        <td><img src="@Url.Content("~/images/{{Images}}")" width="50px;" class="img-responsive" /></td>
+        <td>{{Price}}</td>
+        <td><input type="number" data-id="{{Id}}" data-price="{{Price}}" value="{{Quantity}}" class="form-control input txtQuantity" /></td>
+        <td id="amount_{{Id}}">{{Amount}}</td>
+        <td>
+            <button type="button" class="orange-btn" id="btnDelete" data-id="{{Id}}"><i class="fa fa-close"></i>Xóa</button>
+        </td>
+    </tr>
+</script>
+

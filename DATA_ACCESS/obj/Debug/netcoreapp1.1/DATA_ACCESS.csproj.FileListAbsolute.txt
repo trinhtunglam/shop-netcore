@@ -1,0 +1,9 @@
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.deps.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.pdb

@@ -1,0 +1,230 @@
+﻿@using SHOP_NETCORE.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+    var productByCategory = (List<ProductViewModel>)ViewBag.LstProductByCategory;
+    var a = 1;
+}
+
+<style>
+    #li5 {
+        margin-left: 0px !important;
+    }
+    .sale-img {
+        padding-right: 47px;
+        padding-top: 37px;
+    }
+</style>
+
+@section scriptClient{
+    <script src="~/client/js/shoppingCart.js"></script>
+}
+
+@section Slide{
+    <section class="banner-wrapper">
+        <div class="banner-block container">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li><img title="Banner" alt="Banner" src="~/client/images/banner1.jpg" /></li>
+                    <li><img title="Banner" alt="Banner" src="~/client/images/banner2.jpg" /></li>
+                    <li><img title="Banner" alt="Banner" src="~/client/images/banner3.jpg" /></li>
+                    <li><img title="Banner" alt="Banner" src="~/client/images/banner4.jpg" /></li>
+                </ul>
+            </div>
+            <ul class="banner-add">
+                <li class="add1"><a href="#" title=""><img title="add1" alt="add1" src="~/client/images/banner_add1.png" /></a></li>
+                <li class="add2"><a href="#" title=""><img title="add2" alt="add2" src="~/client/images/banner_add2.png" /></a></li>
+            </ul>
+        </div>
+    </section>
+}
+
+<section class="content-wrapper">
+    <div class="content-container container">
+        <div class="heading-block">
+            <h1>Freatured Products</h1>
+            <ul class="pagination">
+                <li class="grid"><a href="#" title="Grid">Grid</a></li>
+            </ul>
+        </div>
+        <div class="feature-block">
+            <ul id="mix" class="product-grid">
+                @foreach (var item in productByCategory)
+                {
+                    <li>
+                        <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="@Url.Content("~/images/"+ item.Images)" width="170px" height="168px;" /></div>
+                        <div class="pro-hover-block">
+                            <h4 class="pro-name">@item.Name</h4>
+                            <div class="link-block">
+                                <a href="#quick-view-container" class="quickllook inline" title="Quick View">Quick View</a>
+                                <a href="view.html" class="quickproLink" title="Link">Product link</a>
+                            </div>
+                            <div class="pro-price">@item.PromotionPrice.ToString("N0") VNĐ</div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="heading-block">
+            <h1>New Product</h1>
+        </div>
+        <div class="new-product-block">
+            <ul class="product-grid">
+                @foreach (var item in productByCategory)
+                {
+                    <li id="li@(a++)">
+                        <div class="pro-img">
+                            <img title="Freature Product" alt="Freature Product" src="@Url.Content("~/images/"+ item.Images)" width="170px" height="168px;" />
+                        </div>
+                        <div class="pro-content">
+                            <p>@item.Name</p>
+                        </div>
+                        <div class="pro-price">@item.PromotionPrice.ToString("N0") <small>VNĐ</small></div>
+                        <div class="pro-btn-block">
+                            <a class="add-cart left btnAddToCart" href="#" data-id="@item.Id" title="Add to Cart">Add to Cart</a>
+                            <a class="add-cart right quickCart inline" href="#quick-view-container-@item.Id" title="Quick View">Quick View</a>
+                        </div>
+                        <div class="pro-link-block">
+                            <a class="add-wishlist left" href="#" title="Add to wishlist">Add to wishlist</a> <a class="add-compare right" href="#" title="Add to Compare">Add to Compare</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                    
+                }
+
+            </ul>
+
+            @foreach (var item in productByCategory)
+            {
+                <article id="articleQ" style="display:none;">
+                    <section id="quick-view-container-@item.Id" class="quick-view-wrapper">
+                        <div class="quick-view-container">
+                            <div class="quick-view-left" style="width:300px;">
+                                <h2>@item.Name</h2>
+                                <div class="product-img-box">
+                                    <p class="product-image">
+                                        <img src="@Url.Content("~/images/"+ item.Images)" title="Sale" alt="Sale" class="sale-img" />
+                                    </p>
+                                  
+                                </div>
+                            </div>
+                            <div class="quick-view-right tabs"  style="width:269px;">
+                                <ul class="tab-block tabNavigation">
+                                    <li><a class="selected" title="Overview" href="#tabDetail">Overview</a></li>
+                                    <li><a title="Description" href="#tabDes">Description</a></li>
+                                </ul>
+                                <div id="tabDetail" class="tabDetail">
+                                    <div class="first-review">Be the first to review this product</div>
+                                    <div class="price-box">
+                                        <span class="price">@item.PromotionPrice.ToString("N0") <small>VNĐ</small></span>
+                                    </div>
+                                    <div class="availability">In stock</div>
+                                    <div class="color-size-block">
+                                        <div class="label-row">
+                                            <label><em>*</em> color</label>
+                                            <span class="required">* Required Fields</span>
+                                        </div>
+                                        <div class="select-row">
+                                            <select><option>-- Please Select --</option></select>
+                                        </div>
+                                        <div class="label-row">
+                                            <label><em>*</em> size</label>
+                                        </div>
+                                        <div class="select-row">
+                                            <select><option>-- Please Select --</option></select>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart-box">
+                                        <span class="qty-box">
+                                            <label for="qty">Qty:</label>
+                                            <a class="prev" title="" href="#"><img alt="" title="" src="~/client/images/qty_prev.png"></a>
+                                            <input type="text" name="qty" class="input-text qty" id="qty" maxlength="12" value="1">
+                                            <a class="next" title="" href="#"><img alt="" title="" src="~/client/images/qty_next.png"></a>
+                                        </span>
+                                        <button title="Add to Cart" class="form-button"><span>Add to Cart</span></button>
+                                    </div>
+                                </div>
+                                <div id="tabDes" class="tabDes">
+                                    @Html.Raw(item.Content)
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                </article>
+            }
+            @*<ul class="product-grid">
+                    <li>
+                        <div class="pro-img">
+                            <img title="Freature Product" alt="Freature Product" src="~/client/images/default_img.png" />
+                        </div>
+                        <div class="pro-content">
+                            <p>White Round Neck T-Shirt</p>
+                        </div>
+                        <div class="pro-price">$600.00</div>
+                        <div class="pro-btn-block"> <a class="add-cart left" href="#" title="Add to Cart">Add to Cart</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="Quick View">Quick View</a> </div>
+                        <div class="pro-link-block">
+                            <a class="add-wishlist left" href="#" title="Add to wishlist">Add to wishlist</a> <a class="add-compare right" href="#" title="Add to Compare">Add to Compare</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pro-img">
+                            <img title="Freature Product" alt="Freature Product" src="~/client/images/default_img.png" />
+                        </div>
+                        <div class="pro-content">
+                            <p>White Round Neck T-Shirt</p>
+                        </div>
+                        <div class="pro-price">$600.00</div>
+                        <div class="pro-btn-block"> <a class="add-cart left" href="#" title="Add to Cart">Add to Cart</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="Quick View">Quick View</a> </div>
+                        <div class="pro-link-block">
+                            <a class="add-wishlist left" href="#" title="Add to wishlist">Add to wishlist</a> <a class="add-compare right" href="#" title="Add to Compare">Add to Compare</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pro-img">
+                            <img title="Freature Product" alt="Freature Product" src="~/client/images/default_img.png" />
+                        </div>
+                        <div class="pro-content">
+                            <p>White Round Neck T-Shirt</p>
+                        </div>
+                        <div class="pro-price">$600.00</div>
+                        <div class="pro-btn-block"> <a class="add-cart left" href="#" title="Add to Cart">Add to Cart</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="Quick View">Quick View</a> </div>
+                        <div class="pro-link-block">
+                            <a class="add-wishlist left" href="#" title="Add to wishlist">Add to wishlist</a> <a class="add-compare right" href="#" title="Add to Compare">Add to Compare</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pro-img">
+                            <img title="Freature Product" alt="Freature Product" src="~/client/images/default_img.png" />
+                        </div>
+                        <div class="pro-content">
+                            <p>White Round Neck T-Shirt</p>
+                        </div>
+                        <div class="pro-price">$600.00</div>
+                        <div class="pro-btn-block"> <a class="add-cart left" href="#" title="Add to Cart">Add to Cart</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="Quick View">Quick View</a> </div>
+                        <div class="pro-link-block">
+                            <a class="add-wishlist left" href="#" title="Add to wishlist">Add to wishlist</a> <a class="add-compare right" href="#" title="Add to Compare">Add to Compare</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                </ul>*@
+        </div>
+        <div class="news-letter-container">
+            <div class="free-shipping-block">
+                <h1>ENJOY FREE SHIPPING</h1>
+                <p>on all orders as our holiday gift for you!</p>
+            </div>
+            <div class="news-letter-block">
+                <h2>SIGN UP FOR OUR NEWSLETTER</h2>
+                <input type="text" value="Enter email address" title="" />
+                <input type="submit" value="Submit" title="Submit" />
+            </div>
+        </div>
+    </div>
+</section>
+

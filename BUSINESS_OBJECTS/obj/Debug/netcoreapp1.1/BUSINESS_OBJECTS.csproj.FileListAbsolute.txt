@@ -1,0 +1,7 @@
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.deps.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb

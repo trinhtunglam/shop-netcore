@@ -1,0 +1,17 @@
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SHOP_NETCORE.deps.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SHOP_NETCORE.runtimeconfig.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SHOP_NETCORE.runtimeconfig.dev.json
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SHOP_NETCORE.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\obj\Debug\netcoreapp1.1\SHOP_NETCORE.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\obj\Debug\netcoreapp1.1\SHOP_NETCORE.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SHOP_NETCORE.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SERVICES.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\bin\Debug\netcoreapp1.1\SERVICES.pdb
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\obj\Debug\netcoreapp1.1\SHOP_NETCORE.dll
+C:\Users\Lambi\Desktop\SHOP_NETCORE\SHOP_NETCORE\obj\Debug\netcoreapp1.1\SHOP_NETCORE.pdb

@@ -1,0 +1,18 @@
+@model List<SHOP_NETCORE.Models.ProductCategoryViewModel>
+
+    <nav id="smoothmenu1" class="ddsmoothmenu mainMenu">
+        <ul id="nav">
+            <li class="active"><a href="index-2.html" title="Home">Home</a></li>
+            <li class="">
+                <a href="category.html" title="Shop by">Product</a>
+                <ul style="height:auto">
+                    @foreach (var item in Model)
+                {
+                        <li><a href="category.html">@item.Name</a></li>
+                }
+                </ul>
+            </li>
+            <li class=""><a href="about_us.html" title="About us">About us</a></li>
+            <li class=""><a href="contact_us.html" title="Footwear">Contact us</a></li>
+        </ul>
+    </nav>
