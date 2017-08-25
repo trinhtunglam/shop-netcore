@@ -8417,10 +8417,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj",
+      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj",
       "projectName": "BUSINESS_OBJECTS",
-      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj",
-      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\BUSINESS_OBJECTS\\obj\\",
+      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj",
+      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

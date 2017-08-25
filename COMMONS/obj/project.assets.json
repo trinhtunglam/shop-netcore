@@ -7962,10 +7962,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\COMMONS\\COMMONS.csproj",
+      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\COMMONS\\COMMONS.csproj",
       "projectName": "COMMONS",
-      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\COMMONS\\COMMONS.csproj",
-      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\COMMONS\\obj\\",
+      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\COMMONS\\COMMONS.csproj",
+      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\COMMONS\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

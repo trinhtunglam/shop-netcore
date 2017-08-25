@@ -97,6 +97,7 @@ namespace SHOP_NETCORE.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Test()
         {
+            var model = _producerService.GetAll();
             return View();
         }
     }

@@ -8815,10 +8815,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\DATA_ACCESS\\DATA_ACCESS.csproj",
+      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj",
       "projectName": "DATA_ACCESS",
-      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\DATA_ACCESS\\DATA_ACCESS.csproj",
-      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\DATA_ACCESS\\obj\\",
+      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj",
+      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -8826,8 +8826,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
-              "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP_NETCORE\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
+            "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
+              "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
             }
           }
         }

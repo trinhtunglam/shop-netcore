@@ -5,3 +5,10 @@ C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.Asse
 C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.dll
 C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.pdb
 C:\Users\Lambi\Desktop\SHOP_NETCORE\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.deps.json
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csprojResolveAssemblyReference.cache
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.AssemblyInfo.cs
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.pdb
