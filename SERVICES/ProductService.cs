@@ -18,6 +18,7 @@ namespace SERVICES
         IEnumerable<Product> GetListProductPaging(int page,int pageSize, out int totalRow);
         IEnumerable<Product> GetByCategory(int categoryId);
         IEnumerable<Product> GetListProductByName(string keyword);
+        
         //Product GetSingleByWhere(int id);
         void Insert(Product entity);
         void Update(Product entity);

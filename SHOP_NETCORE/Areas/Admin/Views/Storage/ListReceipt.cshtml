@@ -6,6 +6,8 @@
 }
 
 @section Scripts{
+<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+
     <script>
          $('#btnSelect').on('click', function () {
              var selectId = $('#selectReceipt').val();
@@ -23,9 +25,13 @@
                     alert(xhr);
                 }
             });
-    });
+        });
 
-    $('#btnSearch').on('click', function () {
+        var AjaxSuccess = function (response) {
+            $("#AjaxReceipt").html(response);
+        };
+
+    @*$('#btnSearch').on('click', function () {
             var searchString = $('#searchString').val();
             $.ajax({
                 url: '@Url.Action("SearchReceipt", "Storage")',
@@ -42,7 +48,7 @@
                 }
         });
 
-        });
+        });*@
 
         function active(id) {
             debugger;
@@ -80,12 +86,21 @@
         <div class="box-body">
             <di class="row">
                 <div class="col-md-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Từ khóa">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" id="btnSearch" type="button">Tìm kiếm</button>
-                        </span>
-                    </div>
+                    <form asp-controller="Storage" asp-action="SearchReceipt" data-ajax="true" data-ajax-update="#test" data-ajax-method="GET" data-ajax-success="AjaxSuccess">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Từ khóa">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="btnSearch" type="submit">Tìm kiếm</button>
+                            </span>
+                        </div>
+                    </form>
+
+                    @*<div class="input-group">
+                            <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Từ khóa">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="btnSearch" type="button">Tìm kiếm</button>
+                            </span>
+                        </div>*@
                 </div>
                 <div class="col-md-5">
                     <div class="input-group">

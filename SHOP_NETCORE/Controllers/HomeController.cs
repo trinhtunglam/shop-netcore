@@ -42,5 +42,11 @@ namespace SHOP_NETCORE.Controllers
         {
             return View();
         }
+
+        [Route("contact.html")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }

@@ -37,12 +37,12 @@ namespace SHOP_NETCORE.Controllers
             return PartialView(result);
         }
 
-        [Route("products/getcategory")]
-        public IActionResult _Menu()
+        [Route("sanpham-category-{categotyId}")]
+        public IActionResult GetProductByCategory(int categotyId)
         {
-            var model = _productCategoryService.GetAll();
-            var result = _mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
-            return PartialView("_Menu",result);
+            var model = _productService.GetByCategory(categotyId);
+            var result = _mapper.Map<IEnumerable<Product>,IEnumerable<ProductViewModel>>(model);
+            return View(result);
         }
     }
 }

@@ -1,0 +1,76 @@
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+}
+
+<style>
+    .form-control{
+        border-radius:0px !important;
+    }
+</style>
+
+<section class="content-wrapper">
+    <div class="content-container container">
+        <div class="col-left">
+            <div class="block compare-block">
+                <div class="block-title">COMPARE PRODUCTS</div>
+                <ul>
+                    <li>You have no items to compare</li>
+                </ul>
+            </div>
+            <div class="block community-block">
+                <div class="block-title">COMMUNITY POLL</div>
+                <ul>
+                    <li class="question-row">WHAT IS YOUR FAVORITE COLOR</li>
+                    <li><input type="radio"><a href="#" title="Green">Green</a></li>
+                    <li><input type="radio"><a href="#" title="Red">Red</a></li>
+                    <li><input type="radio"><a href="#" title="Black">Black</a></li>
+                    <li><input type="radio"><a href="#" title="Magenta">Magenta</a></li>
+                    <li class="vote-row"><button title="Vote">Vote</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-main">
+            <h1 class="page-title">Contact Us</h1>
+            <div class="contact-form-container">
+                <div class="form-title">Contact Information</div>
+                <ul class="form-fields">
+                    <li class="left">
+                        <label>Name<em>*</em></label>
+                        <input type="text" class="form-control" />
+                    </li>
+                    <li class="left">
+                        <label>Email<em>*</em></label>
+                        <input type="text" class="form-control" />
+                    </li>
+                    <li class="left">
+                        <label>Telephone</label>
+                        <input type="text" class="form-control" />
+                    </li>
+                    <li class="full-row">
+                        <label>Comment<em>*</em></label>
+                        <textarea class="form-control" ></textarea>
+                    </li>
+                </ul>
+                <div class="button-set">
+                    <p class="required">* Required Fields</p>
+                    <button type="submit" class="form-button"><span>Submit</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="news-letter-container">
+            <div class="free-shipping-block">
+                <h1>ENJOY FREE SHIPPING</h1>
+                <p>on all orders as our holiday gift for you!</p>
+            </div>
+            <div class="news-letter-block">
+                <h2>SIGN UP FOR OUR NEWSLETTER</h2>
+                <input type="text" value="Enter email address" title="" />
+                <input class="submit-btn" type="submit" value="Submit" title="Submit" />
+            </div>
+        </div>
+    </div>
+</section>
+
