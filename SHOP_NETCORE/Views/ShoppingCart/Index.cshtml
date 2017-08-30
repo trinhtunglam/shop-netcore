@@ -1,7 +1,11 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using COMMONS
+@using SHOP_NETCORE.Models
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_layoutClient.cshtml";
+    string key = CommonConstants.CustomerLogin;
+    var customer = HttpContextAccessor.HttpContext.Session.GetObject<CustomerViewModel>(key);
 }
 <style>
     input{
@@ -47,13 +51,14 @@
             <div class=" contact_right">
                 <div class="contact-form col-lg-12">
                     <form method="post" class="form-horizontal">
-                        @*if (Request.IsAuthenticated)
-                            {
-                                <label>
-                                    <input type="checkbox" id="checkLoginInfo" />
-                                    Sử dụng thông tin đăng nhập?
-                                </label>
-                            }*@
+                        @if (customer != null)
+                        {
+                            <div class="form-group required">
+                                <label class="control-label">Sử dụng thông tin đăng nhập?</label>
+                                <input type="checkbox" id="checkLoginInfo">
+                                
+                            </div>
+                            }
                         <fieldset>
                             <legend>Thông tin thanh toán</legend>
                             <div class="form-group required">

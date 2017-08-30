@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "ProductDetail";
     Layout = "~/Views/Shared/_layoutClient.cshtml";
+    var producer = (SHOP_NETCORE.Models.ProducerViewModel)ViewBag.Producer;
+    var supplier = (SHOP_NETCORE.Models.SupplierViewModel)ViewBag.Supplier;
 }
 
 <div itemscope="" itemtype="http://schema.org/Product">
@@ -14,13 +16,13 @@
         </div>
         <div class="col-sm-6">
             <ul class="list-unstyled description">
-                <li><b>Hãng sản xuất :</b> <a href="#"><span itemprop="brand">@Model.ProducerId</span></a></li>
+                <li><b>Hãng sản xuất : </b> <span itemprop="brand"> @producer.Name</span></li>
                 <li><b>Mã sản phẩm :</b> <span itemprop="mpn">@Model.ProductCode</span></li>
-                <li><b>Nhà cung cấp :</b> @Model.SupplierId</li>
+                <li><b>Nhà cung cấp :</b> @supplier.Name</li>
             </ul>
             <ul class="price-box">
-                <li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer"><span class="price-old"> @Model.Price.ToString("N0") <small style="color:red;">vnđ</small></span></li>
-                <li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer"><span itemprop="price">@Model.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small><span itemprop="availability" content="In Stock"></span></span></li>
+                giá bán :<li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer"><span class="price-old"> @Model.Price.ToString("N0") <small style="color:red;">vnđ</small></span></li>
+                giá khuyến mãi :<li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer"><span itemprop="price">@Model.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small><span itemprop="availability" content="In Stock"></span></span></li>
                 <li></li>
             </ul>
             <div id="product">
@@ -34,7 +36,7 @@
                             <a class="qtyBtn mines" href="javascript:void(0);">-</a>
                             <div class="clear"></div>
                         </div>
-                        <button type="button" id="button-cart" class="btn btn-primary btn-lg btnAddToCart">Thêm vào giỏ</button>
+                        <button type="button" id="button-cart" data-id="@Model.Id" class="btn btn-primary btn-lg btnAddToCart">Thêm vào giỏ</button>
                     </div>
                 </div>
             </div>

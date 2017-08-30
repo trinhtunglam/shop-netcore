@@ -14,13 +14,19 @@ namespace SHOP_NETCORE.Controllers
     {
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
+        private readonly IProducerService _producerService;
+        private readonly ISupplierService _supplierService;
         private readonly IMapper _mapper;
 
         public ProductsController(IProductService productService, IMapper mapper,
-            IProductCategoryService productCategoryService)
+            IProductCategoryService productCategoryService,
+            IProducerService producerService,
+            ISupplierService supplierService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
+            _producerService = producerService;
+            _supplierService = supplierService;
             _mapper = mapper;
         }
 
@@ -33,17 +39,11 @@ namespace SHOP_NETCORE.Controllers
         public IActionResult ProductDetail(int id)
         {
             var model = _productService.GetSingleById(id);
+            var producer = _producerService.GetSingleById(model.ProducerId);
+            ViewBag.Producer = _mapper.Map<Producer, ProducerViewModel>(producer);
 
-            //var result = new ProductViewModel();
-            //result.Id = model.Id;
-            //result.Name = model.Name;
-            //result.ProductCode = model.ProductCode;
-            //result.Images = model.Images;
-            //result.Price = model.Price;
-            //result.PromotionPrice = model.PromotionPrice.Value;
-            //result.SupplierViewModel.Name =model.Supplier.Name;
-            //result.ProducerViewModel.Name =model.Producer.Name;
-
+            var supplier = _supplierService.GetSingleById(model.SupplierId);
+            ViewBag.Supplier = _mapper.Map<Supplier, SupplierViewModel>(supplier);
 
             var result = _mapper.Map<Product, ProductViewModel>(model);
             return View(result);
@@ -61,6 +61,20 @@ namespace SHOP_NETCORE.Controllers
         public IActionResult GetProductByProducer(int producerId)
         {
             var model = _productService.GetByProducer(producerId);
+            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
+            return View(result);
+        }
+
+        public IActionResult GetProductNew(int producerId)
+        {
+            var model = _productService.GetProductNew();
+            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
+            return View(result);
+        }
+
+        public IActionResult GetProductBest(int producerId)
+        {
+            var model = _productService.GetProductBest();
             var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
             return View(result);
         }

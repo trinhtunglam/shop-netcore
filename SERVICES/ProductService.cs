@@ -19,6 +19,8 @@ namespace SERVICES
         IEnumerable<Product> GetByCategory(int categoryId);
         IEnumerable<Product> GetByProducer(int producerId);
         IEnumerable<Product> GetListProductByName(string keyword);
+        IEnumerable<Product> GetProductNew();
+        IEnumerable<Product> GetProductBest();
         
         //Product GetSingleByWhere(int id);
         void Insert(Product entity);
@@ -89,9 +91,19 @@ namespace SERVICES
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
+        public IEnumerable<Product> GetProductBest()
+        {
+            return _productRepository.GetAll().OrderBy(t => t.CreateDate);
+        }
+
+        public IEnumerable<Product> GetProductNew()
+        {
+            return _productRepository.GetAll().OrderByDescending(t => t.CreateDate);
+        }
+
         public Product GetSingleById(int id)
         {
-            return _productRepository.GetSingleByCondition(t=>t.Id==id,new string[] {"Supplier","Producer"});
+            return _productRepository.GetSingleByCondition(t=>t.Id==id,new string[] {"Supplier"});
         }
 
         public void Insert(Product entity)

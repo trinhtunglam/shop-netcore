@@ -16,14 +16,19 @@ namespace SHOP_NETCORE.Controllers
     {
         string key = CommonConstants.SessionCart;
         string valueString = "";
+        string user = CommonConstants.CustomerLogin;
 
         private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
 
-        public ShoppingCartController(IProductService productService, IMapper mapper, IOrderService orderService)
+        public ShoppingCartController(IProductService productService, IMapper mapper,
+            IOrderService orderService,
+            ICustomerService customerService)
         {
             _productService = productService;
+            _customerService = customerService;
             _orderService = orderService;
             _mapper = mapper;
         }
@@ -207,6 +212,24 @@ namespace SHOP_NETCORE.Controllers
             return Json(new
             {
                 count = cart
+            });
+        }
+
+        public JsonResult GetUser()
+        {
+            var userSession = HttpContext.Session.GetObject<CustomerViewModel>(user);
+            if (userSession != null)
+            {
+                var userId = _customerService.GetSingleById(userSession.Id);
+                return Json(new
+                {
+                    data = userId,
+                    status = true
+                });
+            }
+            return Json(new
+            {
+                status = false
             });
         }
     }

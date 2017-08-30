@@ -50,15 +50,15 @@
 
 @section Slide{
     <div class="slideshow single-slider owl-carousel">
-    <div class="item"> <a href="#"><img class="img-responsive" src="~/client/image/slider/banner-1.jpg" alt="banner 1" /></a> </div>
-    <div class="item"> <a href="#"><img class="img-responsive" src="~/client/image/slider/banner-2.jpg" alt="banner 2" /></a> </div>
-    <div class="item"> <a href="#"><img class="img-responsive" src="~/client/image/slider/banner-3.jpg" alt="banner 3" /></a> </div>
+        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide2.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
+        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide3.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
+        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide4.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
 </div>
 }
 
 
   
-    <h3 class="subtitle">LapTop</h3>
+    <h3 class="subtitle">Điện thoại</h3>
     <div class="owl-carousel product_carousel">
         @foreach (var phone in productByCategoryLaptop)
         {
@@ -83,27 +83,27 @@
     <!-- Banner Start-->
     <div class="marketshop-banner">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="~/client/image/banner/sample-banner-3-400x200.jpg" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="~/client/image/banner/sample-banner-1-400x200.jpg" alt="Sample Banner" title="Sample Banner" /></a></div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="~/client/image/banner/sample-banner-2-400x200.jpg" alt="Sample Banner 2" title="Sample Banner 2" /></a></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner1.jpg")" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner2.jpg")" alt="Sample Banner" title="Sample Banner" /></a></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner3.jpg")" alt="Sample Banner 2" title="Sample Banner 2" /></a></div>
         </div>
     </div>
     <!-- Banner End-->
 
     <!-- Categories Product Slider Start -->
-    <h3 class="subtitle">Điện thoại <a class="viewall" href="category.html"> hiển thị tất cả</a></h3>
+    <h3 class="subtitle">Laptop <a class="viewall" href="category.html"> hiển thị tất cả</a></h3>
     <div class="owl-carousel latest_category_carousel">
         @foreach (var laptop in productByCategoryPhone)
         {
             <div class="product-thumb">
-                <div class="image"><a href="product.html"><img src="@Url.Content("~/images/"+ laptop.Images)" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
+                <div class="image"><a href="products/detail/@laptop.Id"><img src="@Url.Content("~/images/"+ laptop.Images)" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
                 <div class="caption">
-                    <h4><a href="product.html">@laptop.Name</a></h4>
+                    <h4><a href="products/detail/@laptop.Id">@laptop.Name</a></h4>
                     <p class="price"><span class="price-old">@laptop.Price.ToString("N0") <small style="color:red;">vnđ</small></span></p>
                     <p class="price"><span class="price-new">@laptop.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small></span></p>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" type="button" onClick=""><span>Thêm vào giỏ</span></button>
+                    <button class="btn-primary btnAddToCart" data-id="@laptop.Id" type="button" onClick=""><span>Thêm vào giỏ</span></button>
                     @*<div class="add-to-links">
                         <button type="button" data-toggle="tooltip" title="thêm ưa thích" onClick=""><i class="fa fa-heart"></i></button>
                         <button type="button" data-toggle="tooltip" title="so sánh sản phẩm" onClick=""><i class="fa fa-exchange"></i></button>
