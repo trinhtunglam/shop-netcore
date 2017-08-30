@@ -19,6 +19,9 @@ namespace SHOP_NETCORE.Mappings
             CreateMap<ReceiptNoteDetailViewModel, ReceiptNoteDetail>().ReverseMap();
             CreateMap<OrderViewModel, Order>().ReverseMap();
             CreateMap<OrderDetailViewModel, OrderDetail>().ReverseMap();
+            CreateMap<MenuViewModel, Menu>().ReverseMap();
+            CreateMap<InfomationViewModel, Infomation>().ReverseMap();
+            CreateMap<CustomerViewModel, Customer>().ReverseMap();
         }
     }
 }

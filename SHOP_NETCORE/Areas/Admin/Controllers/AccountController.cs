@@ -44,7 +44,7 @@ namespace SHOP_NETCORE.Areas.Admin.Controllers
                 var result = await _userManager.CreateAsync(user, vm.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Member");
+                    await _userManager.AddToRoleAsync(user, "Admin");
 
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");

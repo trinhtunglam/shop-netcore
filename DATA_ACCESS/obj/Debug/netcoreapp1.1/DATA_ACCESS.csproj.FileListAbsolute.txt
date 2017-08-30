@@ -16,3 +16,13 @@ C:\Users\Lambi\Desktop\SHOP-GIT\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.
 C:\Users\Lambi\Desktop\SHOP-GIT\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.AssemblyInfo.cs
 C:\Users\Lambi\Desktop\SHOP-GIT\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.dll
 C:\Users\Lambi\Desktop\SHOP-GIT\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.deps.json
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\bin\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.csprojResolveAssemblyReference.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.csproj.CoreCompileInputs.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.AssemblyInfo.cs
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\DATA_ACCESS\obj\Debug\netcoreapp1.1\DATA_ACCESS.pdb

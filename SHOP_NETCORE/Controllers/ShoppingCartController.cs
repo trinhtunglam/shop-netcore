@@ -28,10 +28,8 @@ namespace SHOP_NETCORE.Controllers
             _mapper = mapper;
         }
 
-
+        [Route("giohang.html")]
         public IActionResult Index()
-
-
         {
             if (HttpContext.Session.GetObject<List<ShoppingCartViewModel>>(key) == null)
             {
@@ -148,6 +146,7 @@ namespace SHOP_NETCORE.Controllers
             if (cartSession != null)
             {
                 cartSession.RemoveAll(t => t.ProductId == productId);
+                HttpContext.Session.SetObject(key, cartSession);
                 return Json(new
                 {
                     status = true
@@ -198,6 +197,17 @@ namespace SHOP_NETCORE.Controllers
                     message = "không đủ hàng"
                 });
             }
+        }
+
+        [HttpPost]
+        public JsonResult CountItem()
+        {
+            var cartSession = HttpContext.Session.GetObject<List<ShoppingCartViewModel>>(key);
+            int cart = cartSession.Count() +1;
+            return Json(new
+            {
+                count = cart
+            });
         }
     }
 }

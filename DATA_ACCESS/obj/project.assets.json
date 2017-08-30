@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -3101,6 +3101,12 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.2",
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/BUSINESS_OBJECTS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BUSINESS_OBJECTS.dll": {}
         }
       }
     }
@@ -8810,24 +8816,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lambi\\.nuget\\packages\\": {}
+    "C:\\Users\\lambj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj",
+      "projectUniqueName": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\DATA_ACCESS\\DATA_ACCESS.csproj",
       "projectName": "DATA_ACCESS",
-      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj",
-      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\obj\\",
+      "projectPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\DATA_ACCESS\\DATA_ACCESS.csproj",
+      "packagesPath": "C:\\Users\\lambj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\DATA_ACCESS\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\lambj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
-              "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
+            "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
+              "projectPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
             }
           }
         }

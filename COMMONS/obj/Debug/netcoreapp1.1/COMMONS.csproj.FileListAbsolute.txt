@@ -12,3 +12,11 @@ C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csprojRe
 C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.AssemblyInfo.cs
 C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.dll
 C:\Users\Lambi\Desktop\SHOP-GIT\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.deps.json
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\bin\Debug\netcoreapp1.1\COMMONS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csprojResolveAssemblyReference.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.csproj.CoreCompileInputs.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.AssemblyInfo.cs
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\COMMONS\obj\Debug\netcoreapp1.1\COMMONS.pdb

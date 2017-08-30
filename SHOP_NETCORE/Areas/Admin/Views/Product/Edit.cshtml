@@ -62,7 +62,7 @@
                         @Html.LabelFor(m => m.OriginalPrice, new { @class = "col-sm-2 control-label" })
                         <div class="col-sm-6">
                             @*<input type="text" asp-for="Name" class="form-control">*@
-                            @Html.TextBoxFor(m => m.OriginalPrice, new { @class = "form-control", @type = "number" })
+                            @Html.TextBoxFor(m => m.OriginalPrice, new { @class = "form-control" })
                             @*<span asp-validation-for="Name"></span>*@
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         @Html.LabelFor(m => m.Price, new { @class = "col-sm-2 control-label" })
                         <div class="col-sm-6">
                             @*<input type="text" asp-for="Name" class="form-control">*@
-                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @type = "number" })
+                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
                             @*<span asp-validation-for="Name"></span>*@
                         </div>
                     </div>

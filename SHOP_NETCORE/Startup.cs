@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using DATA_ACCESS.Configuration;
 using Microsoft.AspNetCore.Identity;
 using SERVICES.Caching;
+using Microsoft.AspNetCore.Http;
 
 namespace SHOP_NETCORE
 {
@@ -46,6 +47,7 @@ namespace SHOP_NETCORE
 
             var mapper = config.CreateMapper();
             services.AddSingleton(mapper);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddDbContext<ShopOnlineDbContext>(opstions => opstions
             .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -102,6 +104,9 @@ namespace SHOP_NETCORE
             services.AddTransient<IUserManagerRepository, UserManagerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddTransient<IMenuRepository, MenuRepository>();
+            services.AddTransient<IInfomationRepository, InfomationRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
 
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<ISupplierService, SupplierService>();
@@ -111,6 +116,9 @@ namespace SHOP_NETCORE
             services.AddTransient<IReceiptNoteDetailService, ReceiptNoteDetailService>();
             services.AddTransient<IUserManagerService, UserManagerService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IMenuService, MenuService>();
+            services.AddTransient<IInfomationService, InfomationService>();
+            services.AddTransient<ICustomerService, CustomerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -143,7 +151,7 @@ namespace SHOP_NETCORE
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //new UserRoleSeed(app.ApplicationServices.GetService<RoleManager<ApplicationRole>>()).Seed();
+            new UserRoleSeed(app.ApplicationServices.GetService<RoleManager<ApplicationRole>>()).Seed();
         }
     }
 }

@@ -7,5 +7,6 @@ namespace COMMONS
     public class CommonConstants
     {
         public const string SessionCart = "SessionCart";
+        public const string CustomerLogin = "CustomerLogin";
     }
 }

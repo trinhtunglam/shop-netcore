@@ -31,8 +31,5 @@ namespace BUSINESS_OBJECTS
         public int UserGroupId { get; set; }
         [ForeignKey("UserGroupId")]
         public virtual UserGroup UserGroup { get; set; }
-        //public virtual IEnumerable<Comment> Comments { set; get; }
-        //public virtual IEnumerable<Customer> Customers { set; get; }
-
     }
 }

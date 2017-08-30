@@ -32,9 +32,14 @@ namespace SHOP_NETCORE.Controllers
 
         public IActionResult Index()
         {
-            var lstProductbyCategory = _productService.GetByCategory(3).Take(8);
-            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lstProductbyCategory);
-            ViewBag.LstProductByCategory = result;
+            var lstProductbyPhone = _productService.GetByCategory(2);
+            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lstProductbyPhone);
+            ViewBag.lstProductbyPhone = result;
+
+            var lstProductbyLaptop = _productService.GetByCategory(3);
+            var result1 = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lstProductbyLaptop);
+            ViewBag.lstProductbyLaptop = result1;
+
             return View();
         }
 

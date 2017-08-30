@@ -33,8 +33,20 @@ namespace SHOP_NETCORE.Controllers
         public IActionResult ProductDetail(int id)
         {
             var model = _productService.GetSingleById(id);
+
+            //var result = new ProductViewModel();
+            //result.Id = model.Id;
+            //result.Name = model.Name;
+            //result.ProductCode = model.ProductCode;
+            //result.Images = model.Images;
+            //result.Price = model.Price;
+            //result.PromotionPrice = model.PromotionPrice.Value;
+            //result.SupplierViewModel.Name =model.Supplier.Name;
+            //result.ProducerViewModel.Name =model.Producer.Name;
+
+
             var result = _mapper.Map<Product, ProductViewModel>(model);
-            return PartialView(result);
+            return View(result);
         }
 
         [Route("sanpham-category-{categotyId}")]
@@ -42,6 +54,14 @@ namespace SHOP_NETCORE.Controllers
         {
             var model = _productService.GetByCategory(categotyId);
             var result = _mapper.Map<IEnumerable<Product>,IEnumerable<ProductViewModel>>(model);
+            return View(result);
+        }
+
+        [Route("sanpham-producer-{producerId}")]
+        public IActionResult GetProductByProducer(int producerId)
+        {
+            var model = _productService.GetByProducer(producerId);
+            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
             return View(result);
         }
     }

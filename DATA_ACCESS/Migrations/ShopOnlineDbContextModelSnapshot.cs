@@ -134,17 +134,73 @@ namespace DATA_ACCESS.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Password");
+
                     b.Property<string>("Phone");
 
                     b.Property<bool>("Status");
 
-                    b.Property<int>("UserId");
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("BUSINESS_OBJECTS.Infomation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Status");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.ToTable("Infomations");
+                });
 
-                    b.ToTable("Customers");
+            modelBuilder.Entity("BUSINESS_OBJECTS.Languages", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("IsDefault");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages");
+                });
+
+            modelBuilder.Entity("BUSINESS_OBJECTS.Menu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("LinkAddress")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("BUSINESS_OBJECTS.Order", b =>
@@ -557,13 +613,6 @@ namespace DATA_ACCESS.Migrations
                         .WithMany()
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("BUSINESS_OBJECTS.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("BUSINESS_OBJECTS.Customer", b =>
-                {
                     b.HasOne("BUSINESS_OBJECTS.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

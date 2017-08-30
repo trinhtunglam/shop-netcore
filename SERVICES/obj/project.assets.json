@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -3181,6 +3181,12 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.2",
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/BUSINESS_OBJECTS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BUSINESS_OBJECTS.dll": {}
         }
       },
       "DATA_ACCESS/1.0.0": {
@@ -3194,6 +3200,12 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.2",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/DATA_ACCESS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DATA_ACCESS.dll": {}
         }
       }
     }
@@ -9048,27 +9060,39 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lambi\\.nuget\\packages\\": {}
+    "C:\\Users\\lambj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\SERVICES\\SERVICES.csproj",
+      "projectUniqueName": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\SERVICES\\SERVICES.csproj",
       "projectName": "SERVICES",
-      "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\SERVICES\\SERVICES.csproj",
-      "outputPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\SERVICES\\obj\\",
+      "projectPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\SERVICES\\SERVICES.csproj",
+      "packagesPath": "C:\\Users\\lambj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\SERVICES\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\lambj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj": {
-              "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\DATA_ACCESS\\DATA_ACCESS.csproj"
+            "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\DATA_ACCESS\\DATA_ACCESS.csproj": {
+              "projectPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\DATA_ACCESS\\DATA_ACCESS.csproj"
             },
-            "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
-              "projectPath": "C:\\Users\\Lambi\\Desktop\\SHOP-GIT\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
+            "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj": {
+              "projectPath": "C:\\Users\\lambj\\Desktop\\SHOP\\shop-netcore\\BUSINESS_OBJECTS\\BUSINESS_OBJECTS.csproj"
             }
           }
         }

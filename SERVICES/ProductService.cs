@@ -17,6 +17,7 @@ namespace SERVICES
         IEnumerable<Product> GetAll(string searchString);
         IEnumerable<Product> GetListProductPaging(int page,int pageSize, out int totalRow);
         IEnumerable<Product> GetByCategory(int categoryId);
+        IEnumerable<Product> GetByProducer(int producerId);
         IEnumerable<Product> GetListProductByName(string keyword);
         
         //Product GetSingleByWhere(int id);
@@ -71,6 +72,11 @@ namespace SERVICES
             return _productRepository.GetMulti(t => t.CategoryId == categoryId);
         }
 
+        public IEnumerable<Product> GetByProducer(int producerId)
+        {
+            return _productRepository.GetMulti(t => t.ProducerId == producerId);
+        }
+
         public IEnumerable<Product> GetListProductByName(string keyword)
         {
             return _productRepository.GetMulti(t => t.Name.Contains(keyword));
@@ -85,7 +91,7 @@ namespace SERVICES
 
         public Product GetSingleById(int id)
         {
-            return _productRepository.GetSingleById(id);
+            return _productRepository.GetSingleByCondition(t=>t.Id==id,new string[] {"Supplier","Producer"});
         }
 
         public void Insert(Product entity)

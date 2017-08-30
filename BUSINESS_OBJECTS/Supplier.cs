@@ -17,9 +17,5 @@ namespace BUSINESS_OBJECTS
         [MaxLength(256)]
         public string Address { get; set; }
         public bool Status { get; set; }
-        //public virtual IEnumerable<Coupon> Coupons { set; get; }
-        //public virtual IEnumerable<Product> Products { set; get; }
-        //public virtual IEnumerable<ReceiptNote> ReceiptNotes { set; get; }
-
     }
 }

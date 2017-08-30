@@ -1,0 +1,13 @@
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\bin\Debug\netcoreapp1.1\StaticResource.deps.json
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\bin\Debug\netcoreapp1.1\StaticResource.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\bin\Debug\netcoreapp1.1\StaticResource.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.csprojResolveAssemblyReference.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.csproj.CoreCompileInputs.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.AssemblyInfo.cs
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\bin\Debug\netcoreapp1.1\en\StaticResource.resources.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.Resources.resources
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.Resources.en.resources
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\StaticResource.csproj.GenerateResource.Cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\StaticResource\obj\Debug\netcoreapp1.1\en\StaticResource.resources.dll

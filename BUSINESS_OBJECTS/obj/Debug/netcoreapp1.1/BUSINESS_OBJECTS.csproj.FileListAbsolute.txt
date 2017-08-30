@@ -12,3 +12,11 @@ C:\Users\Lambi\Desktop\SHOP-GIT\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINES
 C:\Users\Lambi\Desktop\SHOP-GIT\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.AssemblyInfo.cs
 C:\Users\Lambi\Desktop\SHOP-GIT\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
 C:\Users\Lambi\Desktop\SHOP-GIT\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.deps.json
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.csprojResolveAssemblyReference.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.csproj.CoreCompileInputs.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.AssemblyInfo.cs
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\BUSINESS_OBJECTS\obj\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb

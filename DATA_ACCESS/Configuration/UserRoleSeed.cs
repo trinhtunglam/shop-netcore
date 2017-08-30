@@ -18,20 +18,12 @@ namespace DATA_ACCESS.Configuration
 
         public async void Seed()
         {
-            if((await _roleManager.FindByNameAsync("Member")) == null)
-            {
-                await _roleManager.CreateAsync(new ApplicationRole { Name = "Member" });
-            }
-
+           
             if ((await _roleManager.FindByNameAsync("Admin")) == null)
             {
                 await _roleManager.CreateAsync(new ApplicationRole { Name = "Admin" });
             }
 
-            if ((await _roleManager.FindByNameAsync("Employee")) == null)
-            {
-                await _roleManager.CreateAsync(new ApplicationRole { Name = "Employee" });
-            }
         }
     }
 }

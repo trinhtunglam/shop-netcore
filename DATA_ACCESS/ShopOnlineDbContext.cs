@@ -47,5 +47,8 @@ namespace DATA_ACCESS
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<ReceiptNote> ReceiptNotes { get; set; }
         public virtual DbSet<ReceiptNoteDetail> ReceiptNoteDetails { get; set; }
+        public virtual DbSet<Languages> Languages { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Infomation> Infomations { get; set; }
     }
 }

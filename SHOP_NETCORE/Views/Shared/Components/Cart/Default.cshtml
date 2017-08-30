@@ -1,0 +1,67 @@
+﻿@model List<SHOP_NETCORE.Models.ShoppingCartViewModel>
+
+@{ 
+
+}
+
+    <div id="cart">
+        <a href="giohang.html" type="button" class="heading dropdown-toggle">
+            <span class="cart-icon pull-left flip"></span>
+            @if (Model == null)
+            {
+                <span id="cart-total">Giỏ hàng (0 sản phẩm)</span>
+            }
+            else
+            {
+                <span id="cart-total">Giỏ hàng (@Model.Count() sản phẩm)</span>
+            }
+
+        </a>
+        @*<ul class="dropdown-menu">
+                <li>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Xitefun Causal Wear Fancy Shoes" alt="Xitefun Causal Wear Fancy Shoes" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
+                                <td class="text-left"><a href="product.html">Xitefun Causal Wear Fancy Shoes</a></td>
+                                <td class="text-right">x 1</td>
+                                <td class="text-right">$902.00</td>
+                                <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Aspire Ultrabook Laptop" alt="Aspire Ultrabook Laptop" src="image/product/samsung_tab_1-50x50.jpg"></a></td>
+                                <td class="text-left"><a href="product.html">Aspire Ultrabook Laptop</a></td>
+                                <td class="text-right">x 1</td>
+                                <td class="text-right">$230.00</td>
+                                <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    <div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-right"><strong>Sub-Total</strong></td>
+                                    <td class="text-right">$940.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                    <td class="text-right">$4.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>VAT (20%)</strong></td>
+                                    <td class="text-right">$188.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Total</strong></td>
+                                    <td class="text-right">$1,132.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="checkout"><a href="cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> View Cart</a>&nbsp;&nbsp;&nbsp;<a href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i> Checkout</a></p>
+                    </div>
+                </li>
+            </ul>*@
+    </div>

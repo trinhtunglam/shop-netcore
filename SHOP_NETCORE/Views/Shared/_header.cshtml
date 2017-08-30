@@ -1,119 +1,109 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using COMMONS
+@using SHOP_NETCORE.Models
+@{ 
+    string key = CommonConstants.CustomerLogin;
+    var customer = HttpContextAccessor.HttpContext.Session.GetObject<CustomerViewModel>(key);
+}
 
-<div class="header-wrapper">
-    <header class="container">
-        <div class="head-right">
-            @*<ul class="top-nav">
-                <li class=""><a href="404_error.html" title="My Account">My Account</a></li>
-                <li class="my-wishlist"><a href="404_error.html" title="My Wishlist">My Wishlist</a></li>
-                <li class="contact-us"><a href="contact_us.html" title="Contact Us">Contact Us</a></li>
-                <li class="checkout"><a href="404_error.html" title="Checkout">Checkout</a></li>
-                <li class="log-in"><a href="account_login.html" title="Log In">Log In</a></li>
-            </ul>*@
-            <ul class="currencyBox">
-                <li id="header_currancy" class="currency">
-                    <a class="mainCurrency" href="#">Currency: USD</a>
-                    <div id="currancyBox" class="currency_detial"> <a href="#">�</a> <a href="#">�</a> <a href="#">$</a> </div>
-                </li>
-            </ul>
-            <section class="header-bottom">
-                <div class="cart-block">
-                    <ul>
-                        <li><a href="/shoppingcart/index" title="Cart"><img title="Item" alt="Item" src="~/client/images/item_icon.png" /></a></li>
-                        <li>Item</li>
-                    </ul>
-                    @*<div id="minicart" class="remain_cart" style="display: none;">
-                        <p class="empty">You have 2 items in your shopping cart.</p>
-                        <ol>
+
+<div id="header">
+    <!-- Top Bar Start-->
+    <nav id="top" class="htop">
+        <div class="container">
+            <div class="row">
+                <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
+                <div class="pull-left flip left-top">
+                    <div class="links">
+                        @await Component.InvokeAsync("Infomation")
+                        
+                    </div>
+                    <div id="language" class="btn-group">
+                        <button class="btn-link dropdown-toggle" data-toggle="dropdown"> <span> <img src="image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></span></button>
+                        <ul class="dropdown-menu">
                             <li>
-                                <div class="img-block"><img src="~/client/images/small_img.png" title="" alt="" /></div>
-                                <div class="detail-block">
-                                    <h4><a href="#" title="Htc Mobile 1120">Htc Mobile 1120</a></h4>
-                                    <p>
-                                        <strong>1</strong> x $900.00
-                                    </p>
-                                    <a href="#" title="Details">Details</a>
-                                </div>
-                                <div class="edit-delete-block">
-                                    <a href="#" title="Edit"><img src="~/client/images/edit_icon.png" alt="Edit" title="Edit" /></a>
-                                    <a href="#" title="Remove"><img src="~/client/images/delete_item_btn.png" alt="Remove" title="Remove" /></a>
-                                </div>
+                                <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="image/flags/gb.png" alt="English" title="English" /> English</button>
                             </li>
                             <li>
-                                <div class="img-block"><img src="~/client/images/small_img.png" title="" alt="" /></div>
-                                <div class="detail-block">
-                                    <h4><a href="#" title="Htc Mobile 1120">Htc Mobile 1120</a></h4>
-                                    <p>
-                                        <strong>1</strong> x $900.00
-                                    </p>
-                                    <a href="#" title="Details">Details</a>
-                                </div>
-                                <div class="edit-delete-block">
-                                    <a href="#" title="Edit"><img src="~/client/images/edit_icon.png" alt="Edit" title="Edit" /></a>
-                                    <a href="#" title="Remove"><img src="~/client/images/delete_item_btn.png" alt="Remove" title="Remove" /></a>
-                                </div>
+                                <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="image/flags/ar.png" alt="Arabic" title="Arabic" /> Arabic</button>
                             </li>
-                            <li>
-                                <div class="total-block">Total:<span>$1,900.00</span></div>
-                                <a href="cart.html" title="Checkout" class="orange-btn">Checkout</a>
-                                <div class="clear"></div>
-                            </li>
-                        </ol>
-                    </div>*@
-                </div>
-                <div class="search-block">
-                    <input type="text" value="Search" />
-                    <input type="submit" value="Search" title="Search" />
-                </div>
-            </section>
-        </div>
-        <h1 class="logo">
-            <a href="index-2.html" title="Logo">
-                <img title="Logo" alt="Logo" src="~/client/images/logo.jpg" />
-            </a>
-        </h1>
-        @await Component.InvokeAsync("Category")
-       
-        <div class="mobMenu">
-            <h1>
-                <span>Menu</span>
-                <a class="menuBox highlight" href="javascript:void(0);">ccc</a>
-                <span class="clearfix"></span>
-            </h1>
-            <div id="menuInnner" style="display:none;">
-                <ul class="accordion">
-                    <li class="active"><a href="index-2.html" title="Home">Home</a></li>
-                    <li class="parent">
-                        <a href="category.html" title="Shop by">Shop by</a>
-                        <ul>
-                            <li><a href="category.html">Woman Collection</a></li>
-                            <li><a href="category.html">Men Collection</a></li>
-                            <li><a href="category.html">Accessories</a></li>
-                            <li>
-                                <a href="category.html">Mobile</a>
-                                <ul>
-                                    <li><a href="category.html">Second level</a></li>
-                                    <li><a href="category.html">Second level</a></li>
-                                    <li><a href="category.html">Second level</a></li>
-                                    <li><a href="category.html">Second level</a></li>
-                                    <li><a href="category.html">Second level</a></li>
-                                    <li><a href="category.html">Second level</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="category.html">Shoes</a></li>
-                            <li><a href="category.html">Others</a></li>
                         </ul>
-                    </li>
-                    <li class=""><a href="blog.html" title="Blog">Blog</a></li>
-                    <li class=""><a href="faq.html" title="Faq">Faq</a></li>
-                    <li class=""><a href="about_us.html" title="About us">About us</a></li>
-                    <li class=""><a href="404_error.html" title="Pages">Pages</a></li>
-                    <li class=""><a href="contact_us.html" title="Footwear">Contact us</a></li>
-                    <span class="clearfix"></span>
-                </ul>
+                    </div>
+                    <div id="currency" class="btn-group">
+                        <button class="btn-link dropdown-toggle" data-toggle="dropdown"> <span> $ USD <i class="fa fa-caret-down"></i></span></button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
+                            </li>
+                            <li>
+                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
+                            </li>
+                            <li>
+                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @if (customer == null)
+                {
+                    <div id="top-links" class="nav pull-right flip">
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập</a></li>
+                            <li><a href="dangky.html">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                }
+                else
+                {
+                        <div id="top-links" class="nav pull-right flip">
+                            <ul>
+                                <li>Xin chào @customer.Name</li>
+                                <li><a href="thoat.html">Thoát</a></li>
+                            </ul>
+
+                        </div>
+                }
 
             </div>
         </div>
-
+    </nav>
+    <!-- Top Bar End-->
+    <!-- Header Start-->
+    <header class="header-row">
+        <div class="container">
+            <div class="table-container">
+                <!-- Logo Start -->
+                <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
+                    <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="MarketShop" alt="MarketShop" /></a></div>
+                </div>
+                <!-- Logo End -->
+                <!-- Mini Cart Start-->
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    @await Component.InvokeAsync("Cart")
+                    
+                </div>
+                <!-- Mini Cart End-->
+                <!-- Search Start-->
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
+                    <div id="search" class="input-group">
+                        <input id="filter_name" type="text" name="search" value="" placeholder="Tìm kiếm" class="form-control input-lg" />
+                        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <!-- Search End-->
+            </div>
+        </div>
     </header>
+    <!-- Header End-->
+    <!-- Main Menu Start-->
+    <div class="container">
+        <nav id="menu" class="navbar">
+            <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                @await Component.InvokeAsync("Menu")
+                
+            </div>
+        </nav>
+    </div>
+    <!-- Main Menu End-->
 </div>

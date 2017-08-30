@@ -1,0 +1,13 @@
+﻿@model List<SHOP_NETCORE.Models.MenuViewModel>
+
+<ul class="nav navbar-nav">
+    <li><a class="home_link" title="Home" href="/"><span>Trang chủ</span></a></li>
+    <li class="mega-menu dropdown">
+        <a href="/">Trang chủ</a>
+
+    </li>
+    @foreach (var item in Model)
+    {
+        <li class="mega-menu dropdown"><a href="@item.LinkAddress">@item.Name</a></li>
+    }
+</ul>

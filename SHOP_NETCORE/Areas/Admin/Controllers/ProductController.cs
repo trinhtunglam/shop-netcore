@@ -44,7 +44,7 @@ namespace SHOP_NETCORE.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Employee,Manager")]
         public IActionResult Index(int Page=1)
         {
-            int pageSize = 5;
+            int pageSize = 10;
             int totalRow = 0;
             var productModel = _productService.GetListProductPaging(Page, pageSize, out totalRow);
 
@@ -312,7 +312,7 @@ namespace SHOP_NETCORE.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult GetListProduct(int Page)
         {
-            int pageSize = 5;
+            int pageSize = 10;
             int totalRow = 0;
             var productModel = _productService.GetListProductPaging(Page, pageSize, out totalRow);
 

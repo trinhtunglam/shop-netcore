@@ -20,3 +20,15 @@ C:\Users\Lambi\Desktop\SHOP-GIT\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.csproj
 C:\Users\Lambi\Desktop\SHOP-GIT\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.AssemblyInfo.cs
 C:\Users\Lambi\Desktop\SHOP-GIT\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.dll
 C:\Users\Lambi\Desktop\SHOP-GIT\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.deps.json
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\SERVICES.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\DATA_ACCESS.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\BUSINESS_OBJECTS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\bin\Debug\netcoreapp1.1\DATA_ACCESS.pdb
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.csprojResolveAssemblyReference.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.csproj.CoreCompileInputs.cache
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.AssemblyInfo.cs
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.dll
+C:\Users\lambj\Desktop\SHOP\shop-netcore\SERVICES\obj\Debug\netcoreapp1.1\SERVICES.pdb
