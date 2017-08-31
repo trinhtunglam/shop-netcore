@@ -15,17 +15,20 @@ namespace SHOP_NETCORE.Controllers
         private readonly IProductService _productService;
         private readonly IProducerService _producerService;
         private readonly ISupplierService _supplierService;
+        private readonly ISlideService _slideService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IMapper _mapper;
 
         public HomeController(IProductService productService, IMapper mapper,
             IProducerService producerService,
             ISupplierService supplierService,
-            IProductCategoryService productCategoryService)
+            IProductCategoryService productCategoryService,
+            ISlideService slideService)
         {
             _productService = productService;
             _producerService = producerService;
             _supplierService = supplierService;
+            _slideService = slideService;
             _productCategoryService = productCategoryService;
             _mapper = mapper;
         }
@@ -39,6 +42,11 @@ namespace SHOP_NETCORE.Controllers
             var lstProductbyLaptop = _productService.GetByCategory(3);
             var result1 = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lstProductbyLaptop);
             ViewBag.lstProductbyLaptop = result1;
+
+            var slide = _slideService.GetAll();
+            //var banner = _slideService.GetBanner();
+            ViewBag.Slide = _mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slide);
+            //ViewBag.Banner = _mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(banner);
 
             return View();
         }

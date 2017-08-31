@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_layoutClient.cshtml";
     var productByCategoryPhone = (List<ProductViewModel>)ViewBag.lstProductbyPhone;
     var productByCategoryLaptop = (List<ProductViewModel>)ViewBag.lstProductbyLaptop;
+    var slide = (List<SlideViewModel>)ViewBag.Slide;
 }
 
 <style>
@@ -49,11 +50,16 @@
 }
 
 @section Slide{
-    <div class="slideshow single-slider owl-carousel">
-        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide2.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
-        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide3.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
-        <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slide/slide4.jpg")" width="920px" height="380px" alt="banner 1" /></a> </div>
+<div class="slideshow single-slider owl-carousel">
+    @foreach (var item in slide)
+    {
+        if (item.Status == true)
+        {
+            <div class="item"> <a href="#"><img class="img-responsive" src="@Url.Content("~/images/slidebanner/"+ item.LinkImage)" width="920px" height="380px" alt="banner 1" /></a> </div>
+        }
+    }
 </div>
+
 }
 
 
@@ -83,9 +89,13 @@
     <!-- Banner Start-->
     <div class="marketshop-banner">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner1.jpg")" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner2.jpg")" alt="Sample Banner" title="Sample Banner" /></a></div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/banner3.jpg")" alt="Sample Banner 2" title="Sample Banner 2" /></a></div>
+            @foreach (var item in slide)
+            {
+                if (item.Status == false)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/slidebanner/"+ item.LinkImage)" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
+                }
+            }
         </div>
     </div>
     <!-- Banner End-->

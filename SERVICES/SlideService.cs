@@ -9,6 +9,8 @@ namespace SERVICES
     public interface ISlideService
     {
         IEnumerable<Slide> GetAll();
+        IEnumerable<Slide> GetSlide();
+        IEnumerable<Slide> GetBanner();
         Slide GetById(int id);
         void Insert(Slide entity);
         void Update(Slide entity);
@@ -32,9 +34,19 @@ namespace SERVICES
             return _slideRepository.GetAll();
         }
 
+        public IEnumerable<Slide> GetBanner()
+        {
+            return _slideRepository.GetMulti(t => t.Status == false);
+        }
+
         public Slide GetById(int id)
         {
             return _slideRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Slide> GetSlide()
+        {
+            return _slideRepository.GetMulti(t => t.Status == true);
         }
 
         public void Insert(Slide entity)
