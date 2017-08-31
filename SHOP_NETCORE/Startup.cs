@@ -141,6 +141,20 @@ namespace SHOP_NETCORE
 
             app.UseSession();
 
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationScheme = "ApplicationCookie",
+                AutomaticChallenge=true
+            });
+
+            app.UseFacebookAuthentication(new FacebookOptions()
+            {
+                AppId = "334214987039212",
+                AppSecret = "6ea233762e457446c1f369464d8f8956",
+                AuthenticationScheme = "Facebook",
+                AutomaticChallenge=true
+            });
+
             app.UseIdentity();
 
             app.UseMvc(routes =>
@@ -151,7 +165,7 @@ namespace SHOP_NETCORE
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            new UserRoleSeed(app.ApplicationServices.GetService<RoleManager<ApplicationRole>>()).Seed();
+            //new UserRoleSeed(app.ApplicationServices.GetService<RoleManager<ApplicationRole>>()).Seed();
         }
     }
 }

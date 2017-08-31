@@ -189,6 +189,22 @@ namespace SHOP_NETCORE.Controllers
             if (isEnough)
             {
                 _orderService.Create(orderNew, orderDetail);
+
+                var userSession = HttpContext.Session.GetObject<CustomerViewModel>(user);
+
+                if (userSession == null)
+                {
+                    var customer = new Customer
+                    {
+                        Name = orderNew.CustomerName,
+                        Address = orderNew.CustomerAddress,
+                        Email = orderNew.CustomerEmail,
+                        Phone = orderNew.CustomerMobile,
+                        Status = false
+                    };
+                    _customerService.Add(customer);
+                }
+
                 return Json(new
                 {
                     status = true

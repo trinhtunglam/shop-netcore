@@ -12,6 +12,7 @@ namespace SERVICES
         IEnumerable<Order> GetAll();
         IEnumerable<Order> GetAll(string searchString);
         IEnumerable<Order> GetBySelectId(int id);
+        IEnumerable<Order> GetOrderByCustomerEmail(string email);
         Order GetById(int id);
         IEnumerable<OrderDetail> GetByOrderId(int id);
         bool Create(Order order, List<OrderDetail> orderDetail);
@@ -74,6 +75,11 @@ namespace SERVICES
             else if(id == 2)
                 return _orderRepository.GetAll();
             return _orderRepository.GetMulti(t => t.Status == false);
+        }
+
+        public IEnumerable<Order> GetOrderByCustomerEmail(string email)
+        {
+            return _orderRepository.GetMulti(t => t.CustomerEmail == email);
         }
 
         public Order UpdateResult(Order order)

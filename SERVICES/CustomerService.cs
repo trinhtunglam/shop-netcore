@@ -9,6 +9,8 @@ namespace SERVICES
     public interface ICustomerService
     {
         IEnumerable<Customer> GetAll();
+        IEnumerable<Customer> GetCustomerLogin();
+        IEnumerable<Customer> GetCustomerGuest();
         Customer GetSingleById(int id);
         void Insert(Customer entity);
         Customer Add(Customer entity);
@@ -48,6 +50,16 @@ namespace SERVICES
         public IEnumerable<Customer> GetAll()
         {
             return _customerRepository.GetAll();
+        }
+
+        public IEnumerable<Customer> GetCustomerLogin()
+        {
+            return _customerRepository.GetMulti(t => t.Status == true);
+        }
+
+        public IEnumerable<Customer> GetCustomerGuest()
+        {
+            return _customerRepository.GetMulti(t => t.Status == false);
         }
 
         public Customer GetSingleByEmail(string email)

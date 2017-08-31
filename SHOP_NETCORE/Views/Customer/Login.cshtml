@@ -1,4 +1,10 @@
 ﻿@model SHOP_NETCORE.Models.LoginCustomerViewModel
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@using BUSINESS_OBJECTS
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_layoutClient.cshtml";
@@ -28,6 +34,7 @@
                 <br>
                 <a href="#">Quên mật khẩu?</a>
             </div>
+            
             <input type="submit" value="Đăng nhập" class="btn btn-primary">
         </div>
         <div class="col-sm-6">
@@ -39,6 +46,31 @@
 
     </div>
 </form>
+<div class="social-auth-links text-center col-md-6" style="padding-left:0;" >
+    <p>Hoặc</p>
+    @{
+        var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
+        if (loginProviders.Count == 0)
+        {
+                <p>
+                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                    for details on setting up this ASP.NET application to support logging in via external services.
+                </p>
+        }
+        <form asp-controller="Customer" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+            @foreach (var provider in loginProviders)
+            {
+                <button type="submit" name="provider" style="background:#3B5998;color:white;" title="Log in using your @provider.DisplayName" class="btn btn-block btn-social btn-facebook btn-flat" value="@provider.AuthenticationScheme">
+                    <i class="fa fa-facebook"></i>@provider.AuthenticationScheme</button>
+            }
+        </form>
+    }
+   
+    <a  href="#" style="background:#EA4335;color:white;margin-top:5px;" class="btn btn-block btn-social btn-google btn-flat">
+        <i class="fa fa-google-plus"></i> Đăng nhập bằng
+        Google+
+    </a>
+</div>
 
 
 

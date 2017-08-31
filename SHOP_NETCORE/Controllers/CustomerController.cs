@@ -8,6 +8,7 @@ using SERVICES;
 using AutoMapper;
 using BUSINESS_OBJECTS;
 using COMMONS;
+using Microsoft.AspNetCore.Identity;
 
 namespace SHOP_NETCORE.Controllers
 {
@@ -15,11 +16,19 @@ namespace SHOP_NETCORE.Controllers
     {
         string key = CommonConstants.CustomerLogin;
         private readonly ICustomerService _customerService;
+
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+
         private readonly IMapper _mapper;
 
-        public CustomerController(ICustomerService customerService, IMapper mapper)
+        public CustomerController(ICustomerService customerService, IMapper mapper,
+             UserManager<ApplicationUser> userManager,
+             SignInManager<ApplicationUser> signInManager)
         {
             _customerService = customerService;
+            _userManager = userManager;
+            _signInManager = signInManager;
             _mapper = mapper;
         }
 
@@ -100,6 +109,47 @@ namespace SHOP_NETCORE.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult ExternalLogin()
+        {
+            // Request a redirect to the external login provider.
+            //var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Customer", new { ReturnUrl = returnUrl });
+            //var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            //return Challenge(properties, provider);
+
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Facebook", Url.Action("ExternalLoginCallback", "Customer"));
+            return Challenge(properties, "Facebook");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return View(nameof(Login));
+            }
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            // Sign in the user with this external login provider if the user already has a login.
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index","Home");
+            }
+           
+            if (result.IsLockedOut)
+            {
+                return View("Lockout");
+            }
+            return View();
+           
         }
     }
 }
