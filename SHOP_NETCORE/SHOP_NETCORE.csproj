@@ -3145,6 +3145,7 @@
     <Folder Include="Views\Shared\Components\Cart\" />
     <Folder Include="Views\Shared\Components\ProductBest\" />
     <Folder Include="Views\Shared\Components\ProductNew\" />
+    <Folder Include="wwwroot\images\slidebanner\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\admin\bower_components\bootstrap-datepicker\.github\ISSUE_TEMPLATE.md" />

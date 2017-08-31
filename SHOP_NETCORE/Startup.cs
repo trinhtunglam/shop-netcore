@@ -107,6 +107,7 @@ namespace SHOP_NETCORE
             services.AddTransient<IMenuRepository, MenuRepository>();
             services.AddTransient<IInfomationRepository, InfomationRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ISlideRepository, SlideRepository>();
 
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<ISupplierService, SupplierService>();
@@ -119,6 +120,7 @@ namespace SHOP_NETCORE
             services.AddTransient<IMenuService, MenuService>();
             services.AddTransient<IInfomationService, InfomationService>();
             services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<ISlideService, SlideService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

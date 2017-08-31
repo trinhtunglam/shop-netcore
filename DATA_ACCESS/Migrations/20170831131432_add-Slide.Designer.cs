@@ -8,9 +8,10 @@ using DATA_ACCESS;
 namespace DATA_ACCESS.Migrations
 {
     [DbContext(typeof(ShopOnlineDbContext))]
-    partial class ShopOnlineDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170831131432_add-Slide")]
+    partial class addSlide
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -431,24 +432,6 @@ namespace DATA_ACCESS.Migrations
                     b.HasIndex("ReceiptNodeId");
 
                     b.ToTable("ReceiptNoteDetails");
-                });
-
-            modelBuilder.Entity("BUSINESS_OBJECTS.Slide", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("LinkImage")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256);
-
-                    b.Property<bool>("Status");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Slides");
                 });
 
             modelBuilder.Entity("BUSINESS_OBJECTS.Supplier", b =>

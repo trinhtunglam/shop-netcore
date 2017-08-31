@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COMMONS", "COMMONS\COMMONS.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DATA_ACCESS", "DATA_ACCESS\DATA_ACCESS.csproj", "{770E02DB-E12E-4889-BE0B-E300D61B4327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticResource", "StaticResource\StaticResource.csproj", "{F7CF5D29-4304-4F97-9D6F-A855B9C6A06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticResource", "StaticResource\StaticResource.csproj", "{F7CF5D29-4304-4F97-9D6F-A855B9C6A06A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

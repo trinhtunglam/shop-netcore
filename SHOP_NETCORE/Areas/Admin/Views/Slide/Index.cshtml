@@ -1,0 +1,63 @@
+﻿@model List<SHOP_NETCORE.Models.SlideViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Quản lý Slide, Banner</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <di class="row">
+                <div class="col-md-6">
+                    <a href="/admin/slide/create" class="btn btn-success">Thêm mới</a>
+                </div>
+            </di>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Tên ảnh</th>
+                            <th>Hình ảnh</th>
+                            <th>Thể loại</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td><img src="@Url.Content("~/images/slidebanner/"+ item.LinkImage)" width="50px" /></td>
+                                <td>
+                                    @if(item.Status==true)
+                                    {
+                                        <span>Slide</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Banner</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/admin/slide/detail/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                    <a href="/admin/slide/delete/@item.Id" class="btn  btn-sm btn-danger btnDelete" id="btnDelete" data-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+</section>
+

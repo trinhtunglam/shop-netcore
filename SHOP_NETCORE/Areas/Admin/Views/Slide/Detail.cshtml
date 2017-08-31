@@ -1,0 +1,60 @@
+﻿@model SHOP_NETCORE.Models.SlideViewModel
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+}
+
+<section class="content">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chi tiết</h3>
+        </div>
+        <!-- form start -->
+            <div class="box-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label asp-for="Name" class="col-sm-2 control-label"></label>
+                        <div class="col-sm-6">
+                            <input type="text"readonly value="@Model.Name" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Hình ảnh</label>
+                        <div class="col-sm-10">
+                            <img src="@Url.Content("~/images/slidebanner/"+ Model.LinkImage)" height="320px" width="900px" />
+                        </div>
+                    </div>
+
+                    @if (Model.Status == true)
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Định dạng</label>
+                            <div class="col-sm-6">
+                                <label class="col-sm-2 control-label">Slide</label>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Định dạng</label>
+                            <div class="col-sm-6">
+                                <label class="col-sm-2 control-label">Banner</label>
+                            </div>
+                        </div>
+
+                    }
+
+                    <div class="box-footer col-sm-offset-2">
+                        <a href="/admin/slide" class="btn btn-default ">Trở về</a>
+                    </div>
+                </div>
+
+            </div>
+    </div><!-- /.box -->
+</section>
+

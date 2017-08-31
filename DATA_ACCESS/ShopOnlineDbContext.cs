@@ -50,5 +50,7 @@ namespace DATA_ACCESS
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<Infomation> Infomations { get; set; }
+        public virtual DbSet<Slide> Slides { get; set; }
+
     }
 }

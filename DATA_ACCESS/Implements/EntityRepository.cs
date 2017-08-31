@@ -50,7 +50,7 @@ namespace DATA_ACCESS.Implements
                 return query.AsQueryable();
             }
 
-            return _entitiesContext.Set<T>().ToList();//.AsQueryable();
+            return _entitiesContext.Set<T>().AsQueryable();//.AsQueryable();
         }
 
         public virtual IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
