@@ -23,22 +23,23 @@
             <td>@item.CustomerAddress</td>
             <td>@item.CustomerEmail</td>
             <td>@item.CustomerMobile</td>
-            <td>
+            <td width="100px">
                 @if (item.Status == true)
                 {
                     <label class="text-primary">Đã duyệt</label>
                 }
                 else
                 {
-                    <label class="text-red">Chưa duyệt</label>
+                    <label class="text-red">Chờ duyệt</label>
                 }
             </td>
 
-            <td>
-                <a href="/admin/orderdetail/@item.ID" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>  Chi tiết</a>
+            <td width="218px">
+                <a href="/admin/orderdetail/@item.ID" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Chi tiết</a>
                 @if (item.Status == false)
                 {
-                    <button class="btn btn-sm btn-success" onclick="active(@item.ID)"><i class="fa fa-subway"></i>  Duyệt đơn hàng</button>
+                    <button class="btn btn-sm btn-success" onclick="active(@item.ID)"><i class="fa fa-subway"></i> Duyệt</button>
+                    <button class="btn btn-sm btn-danger" style="float:right;" onclick="delete(@item.ID)"><i class="fa fa-trash"></i> Hủy</button>
                 }
                 
             </td>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -19,5 +20,6 @@ namespace DATA_ACCESS.Interfaces
         void Delete(int id);
         bool CheckContains(Expression<Func<T, bool>> predicate);
         void InsertRange(List<T> entities, int batchSize = 100);
+        IQueryable<T> Table { get; }
     }
 }

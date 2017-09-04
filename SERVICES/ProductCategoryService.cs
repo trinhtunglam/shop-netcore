@@ -37,12 +37,13 @@ namespace SERVICES
 
         public IEnumerable<ProductCategory> GetAll()
         {
-            if (_cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY) == null)
-            {
-                _cacheManager.Set(PRODUCT_ALL_KEY, _productCategory.GetAll(), 1200000);
-                return _cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY);
-            }
-            return _cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY);
+            //if (_cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY) == null)
+            //{
+            //    _cacheManager.Set(PRODUCT_ALL_KEY, _productCategory.GetAll(), 1200000);
+            //    return _cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY);
+            //}
+            //return _cacheManager.Get<IEnumerable<ProductCategory>>(PRODUCT_ALL_KEY);
+            return _productCategory.GetAll();
         }
 
         public ProductCategory GetSingleById(int id)

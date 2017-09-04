@@ -48,7 +48,9 @@ namespace SHOP_NETCORE.Models
         public int ProducerId { get; set; }
         [Display(Name = "Nhà cung cấp")]
         public int SupplierId { get; set; }
-        public virtual SupplierViewModel SupplierViewModel { set; get; }
-        public virtual ProducerViewModel ProducerViewModel { set; get; }
+        public virtual SupplierViewModel Supplier { set; get; }
+        public virtual ProducerViewModel Producer { set; get; }
+        public virtual ProductCategoryViewModel ProductCategory { set; get; }
+
     }
 }

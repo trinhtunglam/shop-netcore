@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "OrderDetail";
     Layout = "~/Areas/Admin/Views/Shared/_layouts.cshtml";
+    decimal total = 0;
 }
 
 <section class="content">
@@ -30,9 +31,15 @@
                                 <td>@item.Product.ProductCode</td>
                                 <td>@item.Product.Name</td>
                                 <td>@item.Quantitty</td>
-                                <td>@(item.Price.ToString("N0"))</td>
+                                <td>@(item.Price.ToString("C0"))</td>
+                                <td hidden>@string.Format("{0:C0}", item.Quantitty * item.Price, total += item.Quantitty * item.Price)</td>
+                                @*@total += @(item.Quantitty * item.Price)*@
                             </tr>
                         }
+                        <tr>
+                            <td colspan="3" class="text-right">Tổng tiền</td>
+                            <td style="color:red">@total.ToString("C0")</td>
+                        </tr>
                     </table>
                 </div>
             </div>

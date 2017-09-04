@@ -109,6 +109,54 @@ namespace SHOP_NETCORE.Controllers
         }
 
         [HttpPost]
+        public JsonResult AddQuantity(int productID,int Quantity)
+        {
+            var cart = HttpContext.Session.GetObject<List<ShoppingCartViewModel>>(key);
+            // Kiểm tra xem chứa productID k
+
+            var product = _productService.GetSingleById(productID);
+
+            if (cart == null)
+            {
+                cart = new List<ShoppingCartViewModel>();
+            }
+
+            if (product.Quantity == 0)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Sản phẩm này hiện đang hết hàng"
+                });
+            }
+
+            if (cart.Any(t => t.ProductId == productID))
+            {
+                foreach (var item in cart)
+                {
+                    if (item.ProductId == productID)
+                    {
+                        item.Quantity += Quantity;
+                    }
+                }
+            }
+            else
+            {
+                ShoppingCartViewModel newItem = new ShoppingCartViewModel();
+                newItem.ProductId = productID;
+                //var product = _productService.GetById(productID);
+                newItem.product = _mapper.Map<Product, ProductViewModel>(product);
+                newItem.Quantity = Quantity;
+                cart.Add(newItem);
+            }
+            HttpContext.Session.SetObject(key, cart);
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        [HttpPost]
         public JsonResult Update(string cartData)
         {
             var cartViewModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ShoppingCartViewModel>>(cartData);

@@ -45,6 +45,9 @@ namespace SHOP_NETCORE.Controllers
             var supplier = _supplierService.GetSingleById(model.SupplierId);
             ViewBag.Supplier = _mapper.Map<Supplier, SupplierViewModel>(supplier);
 
+            var productRelated = _productService.GetProductRelated(id);
+            ViewBag.ProductRelated = _mapper.Map<IEnumerable<Product>,IEnumerable < ProductViewModel >> (productRelated);
+
             var result = _mapper.Map<Product, ProductViewModel>(model);
             return View(result);
         }
@@ -57,10 +60,10 @@ namespace SHOP_NETCORE.Controllers
             return View(result);
         }
 
-        [Route("sanpham-producer-{producerId}")]
-        public IActionResult GetProductByProducer(int producerId)
+        [Route("sanpham-producer-{categoryId}-{producerId}")]
+        public IActionResult GetProductByProducer(int categoryId, int producerId)
         {
-            var model = _productService.GetByProducer(producerId);
+            var model = _productService.GetByCategoryByProducer(categoryId,producerId);
             var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
             return View(result);
         }

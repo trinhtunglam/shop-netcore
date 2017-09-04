@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_layoutClient.cshtml";
     var productByCategoryPhone = (List<ProductViewModel>)ViewBag.lstProductbyPhone;
     var productByCategoryLaptop = (List<ProductViewModel>)ViewBag.lstProductbyLaptop;
+    var productByCategoryHome = (List<ProductViewModel>)ViewBag.lstProductbyCategory;
     var slide = (List<SlideViewModel>)ViewBag.Slide;
+    var lstCategory = (List<ProductCategoryViewModel>)ViewBag.lstCategory;
 }
 
 <style>
@@ -62,42 +64,28 @@
 
 }
 
-
-  
-    <h3 class="subtitle">Điện thoại</h3>
-    <div class="owl-carousel product_carousel">
-        @foreach (var phone in productByCategoryLaptop)
-        {
-            <div class="product-thumb clearfix">
-                <div class="image"><a href="products/detail/@phone.Id"><img src="@Url.Content("~/images/"+ phone.Images)" alt="Brand Fashion Cotton T-Shirt" title="Brand Fashion Cotton T-Shirt" class="img-responsive" /></a></div>
-                <div class="caption">
-                    <h4><a href="products/detail/@phone.Id">@phone.Name</a></h4>
-                    <p class="price"><span class="price-old">@phone.Price.ToString("N0") <small style="color:red;">vnđ</small></span></p>
-                    <p class="price"><span class="price-new">@phone.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small></span></p>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary btnAddToCart" type="button" data-id="@phone.Id"><span>Thêm vào giỏ</span></button>
-                    @*<div class="add-to-links">
-                        <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                        <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                    </div>*@
-                </div>
-            </div>
-        }
-    </div>
+@foreach (var item in lstCategory)
+{
+    <h3 class="subtitle">@item.Name</h3>
+    @await Component.InvokeAsync("ProductByCategory", new { categoryId = item.Id })
+    
     <!-- Featured Product End-->
     <!-- Banner Start-->
     <div class="marketshop-banner">
         <div class="row">
-            @foreach (var item in slide)
+            @foreach (var item1 in slide)
             {
-                if (item.Status == false)
+                if (item1.Status == false)
                 {
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/slidebanner/"+ item.LinkImage)" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/slidebanner/"+ item1.LinkImage)" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
                 }
             }
         </div>
     </div>
+}
+
+
+    
     <!-- Banner End-->
 
     <!-- Categories Product Slider Start -->

@@ -1,28 +1,35 @@
-﻿@model List<SHOP_NETCORE.Models.ProductCategoryViewModel>
-
-@{ 
+﻿@model IEnumerable<BUSINESS_OBJECTS.Product>
+@using System.Linq
+@{
     var lstProducer = (List<SHOP_NETCORE.Models.ProducerViewModel>)ViewBag.lstProducer;
+    var lstProductCategory = (List<SHOP_NETCORE.Models.ProductCategoryViewModel>)ViewBag.productCategory;
+    var lstProducer1 = (List<SHOP_NETCORE.Models.ProducerViewModel>)ViewBag.lstProducer1;
 }
+
 <h3 class="subtitle">Danh Mục</h3>
 <div class="box-category">
     <ul id="cat_accordion">
-        @foreach (var item in Model)
+        @foreach (var item in lstProductCategory)
         {
-            <li>
-                <a href="javascript:void(0)">@item.Name</a> <span class="down"></span>
-                <ul>
-                    @foreach (var producer in lstProducer)
-                    {
-                        <li>
-                            <a href="/sanpham-producer-@producer.Id">@producer.Name</a> @*<span class="down"></span>*@
-                        </li>
-                    }
-                    
-                   
-                </ul>
-            </li>
+            if (item != null)
+            {
+                <li>
+                    <a href="javascript:void(0)">@item.Name</a> <span class="down"></span>
+                    <ul>
+                        @foreach (var producer in lstProducer1)
+                        {
+                            if (producer != null)
+                            {
+                                <li>
+                                    <a href="/sanpham-producer-@item.Id-@producer.Id">@producer.Name</a> @*<span class="down"></span>*@
+                                </li>
+
+                            }
+
+                        }
+                    </ul>
+                </li>
+            }
         }
-        
-       
     </ul>
 </div>

@@ -30,7 +30,6 @@
                     <td>Số lượng</td>
                     <td>giá</td>
                     <td>Tổng tiền</td>
-                    <td>#</td>
                 </tr>
             </thead>
             <tbody id="cartBody"></tbody>
@@ -124,11 +123,8 @@
                 </span>
             </div>
         </td>
-        <td>{{Price}}</td>
+        <td>{{Price}} <small style="color:red;">vnđ</small></td>
         <td id="amount_{{Id}}">{{Amount}}</td>
-        <td>
-            <button type="button" class="btn btn-danger" id="btnDelete" data-id="{{Id}}"><i class="fa fa-close"></i>   Xóa</button>
-        </td>
     </tr>
 </script>
 

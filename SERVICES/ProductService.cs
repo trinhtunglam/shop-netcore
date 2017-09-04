@@ -17,12 +17,16 @@ namespace SERVICES
         IEnumerable<Product> GetAll(string searchString);
         IEnumerable<Product> GetListProductPaging(int page,int pageSize, out int totalRow);
         IEnumerable<Product> GetByCategory(int categoryId);
+        IEnumerable<Product> GetByCategoryHome();
         IEnumerable<Product> GetByProducer(int producerId);
+        IEnumerable<Product> GetByCategoryByProducer(int categoryId,int producerId);
         IEnumerable<Product> GetListProductByName(string keyword);
         IEnumerable<Product> GetProductNew();
         IEnumerable<Product> GetProductBest();
-        
-        //Product GetSingleByWhere(int id);
+        IEnumerable<Product> GetProductRelated(int id);
+        IEnumerable<ProductCategory> GroupBy();
+        IEnumerable<Producer> GroupByProducer();
+
         void Insert(Product entity);
         void Update(Product entity);
         void Delete(int id);
@@ -35,11 +39,17 @@ namespace SERVICES
         private const string COUNTRIES_PATTERN_KEY = "Product.Insert";
 
         private readonly IProductRepository _productRepository;
+        private readonly IProductCategoryRepository _categoryRepository;
+        private readonly IProducerRepository _producerRepository;
         private readonly ICacheManager _cacheManager;
 
-        public ProductService(IProductRepository productRepository, ICacheManager cacheManager)
+        public ProductService(IProductRepository productRepository, ICacheManager cacheManager,
+            IProductCategoryRepository categoryRepository,
+            IProducerRepository producerRepository)
         {
             _productRepository = productRepository;
+            _producerRepository = producerRepository;
+            _categoryRepository = categoryRepository;
             _cacheManager = cacheManager;
         }
 
@@ -56,11 +66,13 @@ namespace SERVICES
 
         public IEnumerable<Product> GetAll()
         {
-            if (_cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY) == null)
-            {
-                _cacheManager.Set(PRODUCT_ALL_KEY, _productRepository.GetAll(), 1200000);
-                return _cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY);
-            }
+            //if (_cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY) == null)
+            //{
+            //    _cacheManager.Set(PRODUCT_ALL_KEY, _productRepository.GetAll(new string[] { "ProductCategory", "Producer" }), 1200000);
+            //    return _cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY);
+            //}
+            //return _cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY);
+            _cacheManager.Set(PRODUCT_ALL_KEY, _productRepository.GetAll(new string[] { "ProductCategory", "Producer" }), 1200000);
             return _cacheManager.Get<IEnumerable<Product>>(PRODUCT_ALL_KEY);
         }
 
@@ -96,6 +108,12 @@ namespace SERVICES
             return _productRepository.GetAll().OrderBy(t => t.CreateDate);
         }
 
+        public IEnumerable<Product> GetProductRelated(int id)
+        {
+            var product = _productRepository.GetSingleById(id);
+            return _productRepository.GetMulti(t => t.Id != id && t.CategoryId == product.CategoryId && t.ProducerId==product.ProducerId).OrderByDescending(t=>t.CreateDate);
+        }
+
         public IEnumerable<Product> GetProductNew()
         {
             return _productRepository.GetAll().OrderByDescending(t => t.CreateDate);
@@ -125,6 +143,61 @@ namespace SERVICES
         {
             _productRepository.Update(entity);
             _cacheManager.Set(PRODUCT_ALL_KEY, _productRepository.GetAll(), 1200000);
+        }
+
+        public IEnumerable<ProductCategory> GroupBy()
+        {
+            var model = from c in _productRepository.Table
+                        group c by c.ProductCategory into g
+                        select new ProductCategory {
+                            Id=g.Key.Id,
+                            Name=g.Key.Name
+                        };
+            return model;
+        }
+
+        public IEnumerable<Producer> GroupByProducer()
+        {
+            var model = from c in _productRepository.Table
+                        group c by c.Producer into g
+                        select new Producer
+                        {
+                            Id = g.Key.Id,
+                            Name = g.Key.Name
+                        };
+            return model;
+
+            //var model = from c in _productRepository.Table
+            //            group c by c.ProductCategory into g
+            //            select c;
+
+            //List<Producer> lstProducer = new List<Producer>();
+            //var model1 = from c in model
+            //             group c by c.Producer into g
+            //             select new Producer
+            //             {
+            //                 Id = g.Key.Id,
+            //                 Name = g.Key.Name
+            //             };
+            //return lstProducer;
+
+        }
+
+        public IEnumerable<Product> GetByCategoryByProducer(int categoryId, int producerId)
+        {
+            return _productRepository.GetMulti(t => t.ProducerId == producerId && t.CategoryId==categoryId);
+        }
+
+        public IEnumerable<Product> GetByCategoryHome()
+        {
+            var category = _categoryRepository.GetAll();
+            IEnumerable<Product> lstProduct = new List<Product>();
+            foreach (var item in category)
+            {
+                var model = GetByCategory(item.Id);
+                lstProduct = model;
+            }
+            return lstProduct;
         }
     }
 }

@@ -35,6 +35,15 @@ namespace DATA_ACCESS.Implements
                 return _entities as DbSet<T>;
             }
         }
+
+        public virtual IQueryable<T> Table
+        {
+            get
+            {
+                return this.Entities;
+            }
+        }
+
         public virtual void Delete(T entity)
         {
             throw new NotImplementedException();

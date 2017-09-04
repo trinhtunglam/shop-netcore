@@ -9,11 +9,11 @@
             <span class="cart-icon pull-left flip"></span>
             @if (Model == null)
             {
-                <span id="cart-total">Giỏ hàng (0 sản phẩm)</span>
+                <span id="cart-total">Giỏ hàng<small> (0 sản phẩm)</small></span>
             }
             else
             {
-                <span id="cart-total">Giỏ hàng (@Model.Count() sản phẩm)</span>
+                <span id="cart-total">Giỏ hàng<small> (@Model.Count() sản phẩm)</small></span>
             }
 
         </a>
