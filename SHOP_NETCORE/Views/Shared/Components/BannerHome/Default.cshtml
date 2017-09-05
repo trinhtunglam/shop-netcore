@@ -1,0 +1,14 @@
+@model List<SHOP_NETCORE.Models.BannerViewModel>
+@{
+    Layout = null;
+}
+
+<div class="marketshop-banner">
+    <div class="row">
+        @foreach (var item1 in Model)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/banner/"+ item1.LinkImage)" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
+        }
+    </div>
+</div>
+

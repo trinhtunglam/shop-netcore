@@ -2,9 +2,6 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_layoutClient.cshtml";
-    var productByCategoryPhone = (List<ProductViewModel>)ViewBag.lstProductbyPhone;
-    var productByCategoryLaptop = (List<ProductViewModel>)ViewBag.lstProductbyLaptop;
-    var productByCategoryHome = (List<ProductViewModel>)ViewBag.lstProductbyCategory;
     var slide = (List<SlideViewModel>)ViewBag.Slide;
     var lstCategory = (List<ProductCategoryViewModel>)ViewBag.lstCategory;
 }
@@ -69,48 +66,7 @@
     <h3 class="subtitle">@item.Name</h3>
     @await Component.InvokeAsync("ProductByCategory", new { categoryId = item.Id })
     
-    <!-- Featured Product End-->
-    <!-- Banner Start-->
-    <div class="marketshop-banner">
-        <div class="row">
-            @foreach (var item1 in slide)
-            {
-                if (item1.Status == false)
-                {
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="#"><img src="@Url.Content("~/images/slidebanner/"+ item1.LinkImage)" alt="Sample Banner 3" title="Sample Banner 3" /></a></div>
-                }
-            }
-        </div>
-    </div>
+    @await Component.InvokeAsync("BannerHome", new { categoryId = item.Id })
+
+   
 }
-
-
-    
-    <!-- Banner End-->
-
-    <!-- Categories Product Slider Start -->
-    <h3 class="subtitle">Laptop <a class="viewall" href="category.html"> hiển thị tất cả</a></h3>
-    <div class="owl-carousel latest_category_carousel">
-        @foreach (var laptop in productByCategoryPhone)
-        {
-            <div class="product-thumb">
-                <div class="image"><a href="products/detail/@laptop.Id"><img src="@Url.Content("~/images/"+ laptop.Images)" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
-                <div class="caption">
-                    <h4><a href="products/detail/@laptop.Id">@laptop.Name</a></h4>
-                    <p class="price"><span class="price-old">@laptop.Price.ToString("N0") <small style="color:red;">vnđ</small></span></p>
-                    <p class="price"><span class="price-new">@laptop.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small></span></p>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary btnAddToCart" data-id="@laptop.Id" type="button" onClick=""><span>Thêm vào giỏ</span></button>
-                    @*<div class="add-to-links">
-                        <button type="button" data-toggle="tooltip" title="thêm ưa thích" onClick=""><i class="fa fa-heart"></i></button>
-                        <button type="button" data-toggle="tooltip" title="so sánh sản phẩm" onClick=""><i class="fa fa-exchange"></i></button>
-                    </div>*@
-                </div>
-            </div>
-        }
-    </div>
-    <!-- Categories Product Slider End -->
-    <!-- Brand Product Slider Start-->   
-
-

@@ -24,7 +24,13 @@ namespace SHOP_NETCORE.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var model = _productService.GetProductBest().Take(5);
+            var model = _productService.GetProductBest().Take(5).Select(x=> new Product {
+                Id=x.Id,
+                Name=x.Name,
+                Images=x.Images,
+                Price=x.Price,
+                PromotionPrice=x.PromotionPrice
+            });
             var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
             return View(result);
         }

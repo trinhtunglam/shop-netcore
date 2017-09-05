@@ -10,7 +10,6 @@ namespace SERVICES
     {
         IEnumerable<Slide> GetAll();
         IEnumerable<Slide> GetSlide();
-        IEnumerable<Slide> GetBanner();
         Slide GetById(int id);
         void Insert(Slide entity);
         void Update(Slide entity);
@@ -19,10 +18,12 @@ namespace SERVICES
     public class SlideService : ISlideService
     {
         private readonly ISlideRepository _slideRepository;
+        private readonly IBannerRepository _bannerRepository;
 
-        public SlideService(ISlideRepository slideRepository)
+        public SlideService(ISlideRepository slideRepository, IBannerRepository bannerRepository)
         {
             _slideRepository = slideRepository;
+            _bannerRepository = bannerRepository;
         }
         public void Delete(int id)
         {
@@ -34,10 +35,6 @@ namespace SERVICES
             return _slideRepository.GetAll();
         }
 
-        public IEnumerable<Slide> GetBanner()
-        {
-            return _slideRepository.GetMulti(t => t.Status == false);
-        }
 
         public Slide GetById(int id)
         {

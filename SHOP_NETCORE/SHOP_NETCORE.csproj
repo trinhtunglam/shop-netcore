@@ -3143,9 +3143,11 @@
     <Folder Include="Views\Shared\Components\Infomation\" />
     <Folder Include="Views\Shared\Components\Menu\" />
     <Folder Include="Views\Shared\Components\Cart\" />
+    <Folder Include="Views\Shared\Components\BannerHome\" />
     <Folder Include="Views\Shared\Components\ProductByCategory\" />
     <Folder Include="Views\Shared\Components\ProductBest\" />
     <Folder Include="Views\Shared\Components\ProductNew\" />
+    <Folder Include="wwwroot\images\banner\" />
     <Folder Include="wwwroot\images\slidebanner\" />
   </ItemGroup>
   <ItemGroup>

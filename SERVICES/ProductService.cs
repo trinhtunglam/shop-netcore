@@ -17,7 +17,6 @@ namespace SERVICES
         IEnumerable<Product> GetAll(string searchString);
         IEnumerable<Product> GetListProductPaging(int page,int pageSize, out int totalRow);
         IEnumerable<Product> GetByCategory(int categoryId);
-        IEnumerable<Product> GetByCategoryHome();
         IEnumerable<Product> GetByProducer(int producerId);
         IEnumerable<Product> GetByCategoryByProducer(int categoryId,int producerId);
         IEnumerable<Product> GetListProductByName(string keyword);
@@ -186,18 +185,6 @@ namespace SERVICES
         public IEnumerable<Product> GetByCategoryByProducer(int categoryId, int producerId)
         {
             return _productRepository.GetMulti(t => t.ProducerId == producerId && t.CategoryId==categoryId);
-        }
-
-        public IEnumerable<Product> GetByCategoryHome()
-        {
-            var category = _categoryRepository.GetAll();
-            IEnumerable<Product> lstProduct = new List<Product>();
-            foreach (var item in category)
-            {
-                var model = GetByCategory(item.Id);
-                lstProduct = model;
-            }
-            return lstProduct;
         }
     }
 }

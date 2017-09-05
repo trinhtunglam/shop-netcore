@@ -9,8 +9,8 @@
             <div class="image"><a href="/products/detail/@item.Id"><img src="@Url.Content("~/images/"+ item.Images)" width="50px" height="50px" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
             <div class="caption">
                 <h4><a href="/products/detail/@item.Id">@item.Name</a></h4>
-                <p class="price"><span class="price-old">@item.Price.ToString("N0") <small style="color:red;">vnđ</small></span></p>
-                <p class="price"><span class="price-new">@item.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small></span></p>
+                <p class="price"><span class="price-old">@item.Price.ToString("C0") </span></p>
+                <p class="price"><span class="price-new">@item.PromotionPrice.ToString("C0") </span></p>
             </div>
         </div>
     }

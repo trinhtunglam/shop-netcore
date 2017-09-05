@@ -29,20 +29,13 @@ namespace SHOP_NETCORE.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var model = _productService.GetAll();
-            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
-
-            var productCategory = _productService.GroupBy();
+            var productCategory = _productService.GroupBy().Select(x=> new ProductCategory {Id=x.Id,Name=x.Name });
             ViewBag.productCategory = _mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategory);
 
-            var lstProducer1 = _productService.GroupByProducer();
+            var lstProducer1 = _productService.GroupByProducer().Select(x => new Producer { Id = x.Id, Name = x.Name });
             ViewBag.lstProducer1 = _mapper.Map<IEnumerable<Producer>, IEnumerable<ProducerViewModel>>(lstProducer1);
 
-            var producer = _producerService.GetAll();
-            var producerViewModel = _mapper.Map<IEnumerable<Producer>, IEnumerable<ProducerViewModel>>(producer);
-            ViewBag.lstProducer = producerViewModel;
-
-            return View(model);
+            return View();
         }
     }
 }

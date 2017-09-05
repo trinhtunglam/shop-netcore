@@ -23,6 +23,7 @@ namespace SHOP_NETCORE.Mappings
             CreateMap<InfomationViewModel, Infomation>().ReverseMap();
             CreateMap<CustomerViewModel, Customer>().ReverseMap();
             CreateMap<SlideViewModel, Slide>().ReverseMap();
+            CreateMap<BannerViewModel, Banner>().ReverseMap();
         }
     }
 }

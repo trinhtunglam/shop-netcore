@@ -1,7 +1,4 @@
-﻿@model IEnumerable<BUSINESS_OBJECTS.Product>
-@using System.Linq
-@{
-    var lstProducer = (List<SHOP_NETCORE.Models.ProducerViewModel>)ViewBag.lstProducer;
+﻿@{
     var lstProductCategory = (List<SHOP_NETCORE.Models.ProductCategoryViewModel>)ViewBag.productCategory;
     var lstProducer1 = (List<SHOP_NETCORE.Models.ProducerViewModel>)ViewBag.lstProducer1;
 }
@@ -23,7 +20,6 @@
                                 <li>
                                     <a href="/sanpham-producer-@item.Id-@producer.Id">@producer.Name</a> @*<span class="down"></span>*@
                                 </li>
-
                             }
 
                         }

@@ -103,6 +103,28 @@ namespace DATA_ACCESS.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("BUSINESS_OBJECTS.Banner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("LinkImage")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("Status");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Banners");
+                });
+
             modelBuilder.Entity("BUSINESS_OBJECTS.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -623,6 +645,13 @@ namespace DATA_ACCESS.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("BUSINESS_OBJECTS.Banner", b =>
+                {
+                    b.HasOne("BUSINESS_OBJECTS.ProductCategory", "ProductCategory")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
                 });
 
             modelBuilder.Entity("BUSINESS_OBJECTS.Comment", b =>
