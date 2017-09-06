@@ -17,6 +17,7 @@ namespace SERVICES
         IEnumerable<OrderDetail> GetByOrderId(int id);
         bool Create(Order order, List<OrderDetail> orderDetail);
         Order UpdateResult(Order order);
+        void Delete(int id);
     }
     public class OrderService : IOrderService
     {
@@ -46,6 +47,11 @@ namespace SERVICES
             {
                 return false;
             }
+        }
+
+        public void Delete(int id)
+        {
+            _orderRepository.Delete(id);
         }
 
         public IEnumerable<Order> GetAll()

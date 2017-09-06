@@ -24,6 +24,7 @@
                 }
             });
     });
+
     function active(id) {
             var id = id;
             $.ajax({
@@ -40,7 +41,26 @@
                     alert(xhr);
                 }
             });
-        }
+    }
+
+    function deleteOrder(id) {
+            var id = id;
+            $.ajax({
+                url: '@Url.Action("DeleteOrder", "Order")',
+                type: "POST",
+                data: {
+                    id: id
+                },
+                contentType: 'application/html; charset=utf-8',
+                success: function (data) {
+                    $("#AjaxOrder").html(data);
+                },
+                error: function (xhr) {
+                    alert(xhr);
+                }
+            });
+    }
+
 
     $('#btnSearch').on('click', function () {
             var searchString = $('#searchString').val();

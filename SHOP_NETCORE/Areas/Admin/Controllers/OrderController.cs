@@ -69,5 +69,15 @@ namespace SHOP_NETCORE.Areas.Admin.Controllers
             var result = _mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(model);
             return PartialView("_OrderPartial", result);
         }
+
+        [Authorize(Roles = "Admin,Employee,Manager")]
+        public IActionResult DeleteOrder(int id)
+        {
+           _orderService.Delete(id);
+            var model = _orderService.GetAll();
+
+            var result = _mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(model);
+            return PartialView("_OrderPartial", result);
+        }
     }
 }
