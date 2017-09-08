@@ -20,9 +20,11 @@ namespace SERVICES
         IEnumerable<Product> GetByProducer(int producerId);
         IEnumerable<Product> GetByCategoryByProducer(int categoryId,int producerId);
         IEnumerable<Product> GetListProductByName(string keyword);
+        IEnumerable<string> GetListProductByNameString(string name);
         IEnumerable<Product> GetProductNew();
         IEnumerable<Product> GetProductBest();
         IEnumerable<Product> GetProductRelated(int id);
+        Product GetSingleProductByName(string name);
         IEnumerable<ProductCategory> GroupBy();
         IEnumerable<Producer> GroupByProducer();
 
@@ -185,6 +187,23 @@ namespace SERVICES
         public IEnumerable<Product> GetByCategoryByProducer(int categoryId, int producerId)
         {
             return _productRepository.GetMulti(t => t.ProducerId == producerId && t.CategoryId==categoryId);
+        }
+
+        public IEnumerable<string> GetListProductByNameString(string name)
+        {
+            //return _productRepository.GetMulti(x =>x.Name.Contains(name)).Select(y => y.Name);
+            if (_cacheManager.Get<string>(PRODUCT_ALL_KEY) == null)
+            {
+                _cacheManager.Set(PRODUCT_ALL_KEY, _productRepository.GetMulti(x => x.Name.Contains(name)).Select(y => y.Name), 1200000);
+                return _cacheManager.Get<IEnumerable<string>>(PRODUCT_ALL_KEY);
+            }
+            return _cacheManager.Get<IEnumerable<string>>(PRODUCT_ALL_KEY);
+        }
+
+        public Product GetSingleProductByName(string name)
+        {
+            return _productRepository.GetSingleByCondition(t => t.Name == name);
+            
         }
     }
 }

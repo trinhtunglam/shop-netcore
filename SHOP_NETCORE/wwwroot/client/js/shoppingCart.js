@@ -108,9 +108,9 @@
                             ProductCode: item.product.productCode,
                             Name: item.product.name,
                             Images: item.product.images,
-                            Price: item.product.price,
+                            Price: accounting.formatMoney(item.product.price, { symbol: "VNĐ", format: "%v %s" }),
                             Quantity: item.quantity,
-                            Amount: item.quantity * item.product.price
+                            Amount: accounting.formatNumber(item.quantity * item.product.price, { symbol: "vnđ", format: "%v %s" }),
                         });
                     });
 
@@ -201,7 +201,8 @@
         var lstTextBox = $('.txtQuantity');
         var total = 0;
         $.each(lstTextBox, function (i, item) {
-            total += parseInt($(item).val()) * parseFloat($(item).data('price'));
+            //total += parseInt($(item).val()) * parseFloat($(item).data('price'));
+            total = accounting.formatNumber(parseInt($(item).val()) *  $(item).data('price'), { symbol: "vnđ", format: "%v %s" });
         });
         return total;
     },

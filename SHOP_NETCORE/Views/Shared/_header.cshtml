@@ -85,10 +85,13 @@
                 <!-- Mini Cart End-->
                 <!-- Search Start-->
                 <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
-                    <div id="search" class="input-group">
-                        <input id="filter_name" type="text" name="search" value="" placeholder="Tìm kiếm" class="form-control input-lg" />
-                        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form class="form-horizontal" asp-action="SearchProductByName" asp-controller="Products" method="post">
+                        <div id="search" class="input-group">
+                            <input id="txtKeyword" name="keyword" type="text" value="" placeholder="Tìm kiếm" class="form-control input-lg" />
+                            <button type="submit" class="button-search"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                    
                 </div>
                 <!-- Search End-->
             </div>

@@ -44,10 +44,11 @@
     }
 
     function deleteOrder(id) {
-            var id = id;
+        var id = id;
+        debugger;
             $.ajax({
                 url: '@Url.Action("DeleteOrder", "Order")',
-                type: "POST",
+                type: "GET",
                 data: {
                     id: id
                 },

@@ -8,7 +8,7 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <ShowAllFiles>true</ShowAllFiles>
-    <WebStackScaffolding_LayoutPageFile>~/Areas/Admin/Views/Shared/_layouts.cshtml</WebStackScaffolding_LayoutPageFile>
+    <ShowAllFiles>false</ShowAllFiles>
+    <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_layoutClient.cshtml</WebStackScaffolding_LayoutPageFile>
   </PropertyGroup>
 </Project>

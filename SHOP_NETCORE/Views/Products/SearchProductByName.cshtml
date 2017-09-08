@@ -1,0 +1,44 @@
+﻿@model SHOP_NETCORE.Models.ProductViewModel
+@{
+    ViewData["Title"] = "SearchProductByName";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+}
+
+<h1 class="title">Kết quả tìm kiếm</h1>
+<div class="product-filter">
+    <div class="row">
+        <div class="col-md-4 col-sm-5">
+            <div class="btn-group">
+                <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+                <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row products-category">
+    <div class="product-layout product-list col-xs-12">
+            <div class="product-thumb">
+                <div class="image"><a href="/products/detail/@Model.Id"><img src="@Url.Content("~/images/"+ Model.Images)" alt=" Strategies for Acquiring Your Own Laptop " title=" Strategies for Acquiring Your Own Laptop " class="img-responsive" /></a></div>
+                <div>
+                    <div class="caption">
+                        <h4><a href="/products/detail/@Model.Id">@Model.Name</a></h4>
+                        <p class="description">
+                            Latest Intel mobile architecture
+
+                            Powered by the most advanced mobile processors from Intel, t..
+                        </p>
+                        <p class="price"><span class="price-old">@Model.Price.ToString("N0") <small style="color:red;">vnđ</small></span></p>
+                        <p class="price"><span class="price-new">@Model.PromotionPrice.ToString("N0") <small style="color:red;">vnđ</small></span></p>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-primary btnAddToCart" type="button" onClick=""><span>Thêm vào giỏ</span></button>
+                        @*<div class="add-to-links">
+                                <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i> <span>Add to Wish List</span></button>
+                                <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i> <span>Compare this Product</span></button>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+

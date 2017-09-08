@@ -81,5 +81,21 @@ namespace SHOP_NETCORE.Controllers
             var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
             return View(result);
         }
+
+        public JsonResult GetListProductByNameString(string keyword)
+        {
+            var model = _productService.GetListProductByNameString(keyword);
+            return Json(new
+            {
+                data = model
+            });
+        }
+
+        public IActionResult SearchProductByName(string keyword)
+        {
+            var model = _productService.GetSingleProductByName(keyword);
+            var result = _mapper.Map<Product, ProductViewModel>(model);
+            return View(result);
+        }
     }
 }

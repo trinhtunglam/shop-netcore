@@ -51,12 +51,14 @@ namespace SERVICES
 
         public void Delete(int id)
         {
-            _orderRepository.Delete(id);
+            var model = _orderRepository.GetSingleById(id);
+            model.isDeleted = true;
+            _orderRepository.Update(model);
         }
 
         public IEnumerable<Order> GetAll()
         {
-            return _orderRepository.GetAll().OrderBy(c => c.CreatedDate);
+            return _orderRepository.GetMulti(t=>t.isDeleted==false).OrderBy(c => c.CreatedDate);
         }
 
         public IEnumerable<Order> GetAll(string searchString)

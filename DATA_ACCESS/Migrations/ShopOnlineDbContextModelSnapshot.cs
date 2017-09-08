@@ -261,6 +261,8 @@ namespace DATA_ACCESS.Migrations
 
                     b.Property<bool>("Status");
 
+                    b.Property<bool?>("isDeleted");
+
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
